@@ -1,0 +1,28 @@
+﻿@page "/"
+@inject NavigationManager _manager;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?"/>
+
+<button @onclick="redirect">All is ok</button>
+
+<button @onclick="reg">Rigister</button>
+
+@code {
+
+    private void redirect()
+    {
+        _manager.NavigateTo("/fetchpage");
+    }
+
+    private void reg()
+    {
+        _manager.NavigateTo("/Register");
+    }
+
+}

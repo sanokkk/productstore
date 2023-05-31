@@ -4,21 +4,26 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-//using Microsoft.EntityFrameworkCore;
+using PoductStore.Identity.Identity.BLL.Implementations;
+using PoductStore.Identity.Identity.BLL.Interfaces;
 using PoductStore.Identity.Identity.DAL;
 using PoductStore.Identity.Identity.DAL.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<UsersDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Npg")));
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
@@ -47,7 +52,7 @@ builder.Services.AddAuthentication(opt =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -57,6 +62,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
+
+app.UseCors(cors =>
+{
+    cors.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(origin => true).AllowCredentials();
+});
 
 app.MapControllers();
 

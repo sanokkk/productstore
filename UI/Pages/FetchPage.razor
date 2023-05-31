@@ -1,0 +1,38 @@
+﻿@page "/fetchPage"
+@inject HttpClient _http;
+<h3>FetchPage</h3>
+
+@if (names is null)
+{
+    <button type="button" @onclick="SetResponse">Load</button>
+    <p>Loading</p>
+}
+else
+{
+    @foreach (var el in names)
+    {
+        <p>name: @el</p>
+    }
+}
+
+
+
+
+@code {
+
+    private List<string> names;
+
+    private async Task<List<string>> GetNames()
+    {
+        var response = await _http.GetFromJsonAsync<List<string>>(new Uri("http://localhost:5243/api/Auth"));
+
+        return response;
+    }
+
+    private async void SetResponse()
+    {
+        names = await GetNames();
+    }
+
+}
+
