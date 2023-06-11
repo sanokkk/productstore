@@ -1,5 +1,9 @@
 ﻿@page "/"
+@using Blazored.LocalStorage
+@using global::UI.Providers
 @inject NavigationManager _manager;
+@inject ILocalStorageService _localStorage;
+@inject AuthenticationStateProvider _authenticationState;
 
 <PageTitle>Index</PageTitle>
 
@@ -13,6 +17,10 @@ Welcome to your new app.
 
 <button @onclick="reg">Rigister</button>
 
+<button @onclick="Logout">Logout</button>
+
+<button @onclick="fetching">Fetching</button>
+
 @code {
 
     private void redirect()
@@ -23,6 +31,18 @@ Welcome to your new app.
     private void reg()
     {
         _manager.NavigateTo("/Register");
+    }
+
+    private void fetching()
+    {
+        _manager.NavigateTo("/fetchPage");
+    }
+
+    private async void Logout()
+    {
+        await _localStorage.RemoveItemAsync("jwt-token");
+        (_authenticationState as AuthProvider).NotifyAuthState();
+        _manager.NavigateTo("/login");
     }
 
 }

@@ -1,0 +1,30 @@
+﻿@page "/mypage"
+@using global::UI.Service.Responses
+@using global::UI.Service.Interfaces
+@inject IAuthService _service;
+<h3>MyPage</h3>
+@if (User is not null)
+{
+    <p>@User.Id</p>
+    <p>@User.UserName</p>
+    <p>@User.Email</p>
+}
+
+@code {
+    public MyUser User;
+    public string Name;
+
+    protected override async void OnInitialized()
+    {
+        //base.OnInitialized();
+
+        var response =  await _service.GetAsync();
+
+        if (response.Success)
+        {
+            User = response.Content;
+        }
+        StateHasChanged();
+    }
+
+}

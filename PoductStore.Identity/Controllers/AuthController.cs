@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Runtime.CompilerServices;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoductStore.Identity.Identity.BLL.Dtos;
 using PoductStore.Identity.Identity.BLL.Interfaces;
@@ -31,15 +33,46 @@ public class AuthController: ControllerBase
             
         return BadRequest(response.Errors);
     }
-    
-    
 
-    [HttpGet]
-    public IActionResult Get()
+    [HttpPost]
+    [Route("Login")]
+    public async Task<IActionResult> LoginAsync([FromBody]LoginUserDto model)
     {
-        var response = _userService.GetUserNames();
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
 
-        return Ok(response);
+        var result = await _userService.LoginAsync(model);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        else
+        {
+            return BadRequest(result.Errors);
+        }
+    }
+    
+    
+
+    
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> GetAsync()
+    {
+        var userId = User.Claims.First(f => f.Type == "id").Value;
+
+        var result = await _userService.GetUserAsync(userId);
+
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+        else
+        {
+            return BadRequest();
+        }
     }
     
     

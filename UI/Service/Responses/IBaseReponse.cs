@@ -2,11 +2,8 @@
 
 namespace UI.Service.Responses;
 
-public interface IBaseReponse
+public interface IBaseReponse<T>
 {
-    bool IsSuccess { get; set; }
-    
-    List<string> Errors { get; set; }
-    
-    HttpStatusCode StatusCode { get; set; }
+    bool Success { get; set; }
+    T Content { get; set; }
 }

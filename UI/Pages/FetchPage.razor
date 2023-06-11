@@ -1,17 +1,20 @@
 ﻿@page "/fetchPage"
-@inject HttpClient _http;
+@using global::UI.Service.Responses
+@using global::UI.Service.Interfaces
+@inject IAuthService _service;
 <h3>FetchPage</h3>
 
-@if (names is null)
+@if (User is null)
 {
     <button type="button" @onclick="SetResponse">Load</button>
     <p>Loading</p>
 }
 else
 {
-    @foreach (var el in names)
+    
     {
-        <p>name: @el</p>
+        <p>name: @User.UserName</p>
+        <p>email: @User.Email</p>
     }
 }
 
@@ -20,18 +23,24 @@ else
 
 @code {
 
-    private List<string> names;
+    private MyUser User;
 
-    private async Task<List<string>> GetNames()
+    private async Task<MyUser> GetUser()
     {
-        var response = await _http.GetFromJsonAsync<List<string>>(new Uri("http://localhost:5243/api/Auth"));
+        var response = await _service.GetAsync();
 
-        return response;
+        if (response.Success)
+            return response.Content;
+        else
+        {
+            return null;
+        }
     }
 
     private async void SetResponse()
     {
-        names = await GetNames();
+        User = await GetUser();
+        StateHasChanged();
     }
 
 }

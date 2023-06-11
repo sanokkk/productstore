@@ -1,0 +1,67 @@
+﻿@page "/login"
+@using global::UI.UI.Domain.Dto_S
+@using global::UI.Service.Interfaces
+@using Blazored.LocalStorage
+@using global::UI.Providers
+@using global::UI.Service.Responses
+@inject IAuthService _service;
+@inject NavigationManager _manager;
+@inject ILocalStorageService _localStorage;
+@inject AuthenticationStateProvider _authenticationState;
+
+<link type="text/css" />
+<div class="form">
+    <div class="title">Вход в аккаунт</div>
+    <div class="subtitle">Введите свои данные</div>
+    <div class="input-container ic1">
+        <input @bind="model.Username" id="login" class="input" type="text" placeholder=" "/>
+        <div class="cut"></div>
+        <label for="login" class="placeholder">Login</label>
+    </div>
+    <div class="input-container ic2">
+        <input @bind="model.Password" id="password" class="input" type="text" placeholder=" "/>
+        <div class="cut"></div>
+        <label for="password" class="placeholder">Password</label>
+    </div>
+    
+    
+    <button @onclick="UserLogin" type="text" class="submit">submit</button>
+</div>
+
+@if (!string.IsNullOrEmpty(validate))
+{
+    <p class="alert-warning text-center">@validate</p>
+}
+
+@code {
+
+    private LoginDto model;
+    private string validate;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = new LoginDto();
+    }
+
+    private async void UserLogin()
+    {
+        var user = model;
+        var response = await _service.LoginAsync(user);
+
+        if (!response.Success)
+        {
+            validate = "Incorrect data!";
+        }
+        else
+        {
+            var loginResponse = (LoginResponse)response;
+            await _localStorage.SetItemAsync("jwt-token",loginResponse.Content);
+            (_authenticationState as AuthProvider).NotifyAuthState();
+            _manager.NavigateTo("/");
+        }
+    }
+    
+    
+
+}

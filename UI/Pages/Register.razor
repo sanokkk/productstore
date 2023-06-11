@@ -1,5 +1,6 @@
 ﻿@page "/Register"
 @using global::UI.Service.Interfaces
+@using global::UI.Service.Responses
 @using global::UI.UI.Domain.Dto_S
 @inject IAuthService _service;
 @inject NavigationManager _manager;
@@ -49,17 +50,13 @@
         var user = model;
         var result = await _service.RegisterAsync(user);
 
-        if (result.IsSuccess)
+        if (result.Success)
         {
             _manager.NavigateTo("/");
         }
         else
         {
-            errors = result.Errors;
-            foreach (var VARIABLE in errors)
-            {
-                Console.WriteLine(VARIABLE);
-            }
+            errors = (result as RegisterResponse).Errors;
         }
     }
     
