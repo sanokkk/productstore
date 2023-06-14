@@ -55,8 +55,9 @@
         }
         else
         {
-            var loginResponse = (LoginResponse)response;
-            await _localStorage.SetItemAsync("jwt-token",loginResponse.Content);
+            var loginResponse = response as LoginResponse;
+            await _localStorage.SetItemAsync("jwt-token",loginResponse.Message);
+            await _localStorage.SetItemAsync("refresh-token", loginResponse.RefreshToken);
             (_authenticationState as AuthProvider).NotifyAuthState();
             _manager.NavigateTo("/");
         }

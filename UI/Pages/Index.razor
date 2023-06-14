@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Blazored.LocalStorage
 @using global::UI.Providers
+@using Microsoft.AspNetCore.Http
 @inject NavigationManager _manager;
 @inject ILocalStorageService _localStorage;
 @inject AuthenticationStateProvider _authenticationState;
@@ -21,7 +22,19 @@ Welcome to your new app.
 
 <button @onclick="fetching">Fetching</button>
 
+<p>@auth</p>
+
 @code {
+    private string auth;
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        if ((await _authenticationState.GetAuthenticationStateAsync()).User.Identity.IsAuthenticated)
+            auth = "Auth";
+        else
+            auth = "Not auth";
+        StateHasChanged();
+    }
 
     private void redirect()
     {
@@ -41,6 +54,7 @@ Welcome to your new app.
     private async void Logout()
     {
         await _localStorage.RemoveItemAsync("jwt-token");
+        await _localStorage.RemoveItemAsync("refresh-token");
         (_authenticationState as AuthProvider).NotifyAuthState();
         _manager.NavigateTo("/login");
     }

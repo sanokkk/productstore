@@ -2,8 +2,8 @@
 
 namespace UI.Service.Responses;
 
-public interface IBaseReponse<T>
+public interface IBaseReponse
 {
     bool Success { get; set; }
-    T Content { get; set; }
+    
 }

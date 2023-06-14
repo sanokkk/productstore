@@ -25,7 +25,8 @@ public class UserProfile: Profile
             .ForMember(dst => dst.UserName,
                 opt => opt
                     .MapFrom(src => src.UserName));
-            
-            
+        CreateMap<User, LoginUserDto>();
+
+
     }
 }

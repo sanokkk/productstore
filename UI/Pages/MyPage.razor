@@ -1,7 +1,9 @@
 ﻿@page "/mypage"
 @using global::UI.Service.Responses
 @using global::UI.Service.Interfaces
+@using Microsoft.AspNetCore.Authorization
 @inject IAuthService _service;
+@attribute [Authorize]
 <h3>MyPage</h3>
 @if (User is not null)
 {
@@ -22,7 +24,7 @@
 
         if (response.Success)
         {
-            User = response.Content;
+            User = (response as GetResponse).Content;
         }
         StateHasChanged();
     }

@@ -74,6 +74,18 @@ public class AuthController: ControllerBase
             return BadRequest();
         }
     }
+
+    [HttpPost("Reauth")]
+    public  async Task<IActionResult> RenewTokenAsync(RenewTokenRequestDto renewTokenRequest)
+    {
+        var result = await _userService.RenewTokenAsync(renewTokenRequest);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+
+        return BadRequest();
+    }
     
     
 }

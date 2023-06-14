@@ -13,4 +13,6 @@ public interface IUserService
     Task<UserManagerResponse> LoginAsync(LoginUserDto model);
 
     Task<GetUserResponse> GetUserAsync(string id);
+
+    Task<RenewTokenResponse> RenewTokenAsync(RenewTokenRequestDto request);
 }

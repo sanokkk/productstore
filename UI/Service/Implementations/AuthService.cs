@@ -26,7 +26,7 @@ public class AuthService : IAuthService
         _httpClient = _factory.CreateClient("Sanokkk");
     }
 
-    public async Task<IBaseReponse<string>> RegisterAsync(RegisterDto model)
+    public async Task<IBaseReponse> RegisterAsync(RegisterDto model)
     {
         var result = new RegisterResponse();
 
@@ -48,7 +48,7 @@ public class AuthService : IAuthService
         return result;
     }
 
-    public async Task<IBaseReponse<string>> LoginAsync(LoginDto model)
+    public async Task<IBaseReponse> LoginAsync(LoginDto model)
     {
         var result = new LoginResponse();
 
@@ -59,7 +59,10 @@ public class AuthService : IAuthService
         var response = await _httpClient.PostAsync(Uri, content);
         if (response.IsSuccessStatusCode)
         {
-            result.Content = (await response.Content.ReadFromJsonAsync<ApiAuthResponse>())?.Message;
+            var responseContent = await response.Content.ReadFromJsonAsync<LoginResponse>();
+            result.Message = responseContent.Message;
+            result.RefreshToken = responseContent.RefreshToken;
+            
         }
         else
         {
@@ -69,7 +72,7 @@ public class AuthService : IAuthService
         return result;
     }
 
-    public async Task<IBaseReponse<MyUser>> GetAsync()
+    public async Task<IBaseReponse> GetAsync()
     {
 
         var token = await _localStorage.GetItemAsync<string>("jwt-token");

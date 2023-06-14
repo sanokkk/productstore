@@ -2,7 +2,7 @@
 
 namespace UI.Service.Responses;
 
-public class GetResponse: IBaseReponse<MyUser>
+public class GetResponse: IBaseReponse
 {
     public bool Success { get; set; }
     public MyUser Content { get; set; }

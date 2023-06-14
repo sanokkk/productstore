@@ -1,7 +1,7 @@
 ﻿@using System.Security.Claims
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">UI</a>
+        <a class="navbar-brand" href="">ProductStore</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,11 +10,7 @@
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+        
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
                 <span class="oi oi-plus" aria-hidden="true"></span> Counter
@@ -22,13 +18,13 @@
         </div>
         <AuthorizeView>
             <Authorized>
-                <span class="oi oi-list-rich" aria-hidden="true">
-                    @GetUserName(context.User.Claims.ToList())
-                </span>
-                
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="mypage">
-                        <span class="oi oi-list-rich" aria-hidden="true" style="color:white;"></span> My Page
+                    <NavLink class="nav-link" href="mypage" style="display: flex; align-items: center; gap: .5rem;padding: 8px 16px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="17.5" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 17.5 17.5">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                        <span class="oi" style="width: 100%;font-size: 14.4px;" aria-hidden="true">My page</span> 
                     </NavLink>
                 </div>
                 

@@ -12,4 +12,6 @@ public class UserManagerResponse
     
     public DateTime? ExpireDate { get; set; }
     
+    public string RefreshToken { get; set; }
+    
 }

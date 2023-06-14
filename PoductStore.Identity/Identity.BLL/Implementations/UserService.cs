@@ -1,12 +1,15 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PoductStore.Identity.Identity.BLL.Dtos;
 using PoductStore.Identity.Identity.BLL.Interfaces;
 using PoductStore.Identity.Identity.BLL.Responses;
+using PoductStore.Identity.Identity.DAL;
 using PoductStore.Identity.Identity.DAL.Models;
 
 namespace PoductStore.Identity.Identity.BLL.Implementations;
@@ -16,12 +19,14 @@ public class UserService: IUserService
     private readonly UserManager<User> _manager;
     private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;
+    private readonly UsersDbContext _db;
 
-    public UserService(UserManager<User> manager, IMapper mapper, IConfiguration configuration)
+    public UserService(UserManager<User> manager, IMapper mapper, IConfiguration configuration, UsersDbContext db)
     {
         _manager = manager;
         _mapper = mapper;
         _configuration = configuration;
+        _db = db;
     }
 
     public async Task<UserManagerResponse> RegisterUserAsync(RegisterUserDto model)
@@ -80,13 +85,15 @@ public class UserService: IUserService
             issuer:_configuration["AuthSettings:Issuer"],
             audience:_configuration["AuthSettings:Audience"],
             claims:claims,
-            expires:DateTime.Now.AddHours(30),
+            expires:DateTime.Now.AddMinutes(3),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
         var tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
+        var refreshToken = await GenerateRefreshToken(user.Id);
 
         response.Message = tokenAsString;
         response.ExpireDate = token.ValidTo;
+        response.RefreshToken = refreshToken;
         return response;
     }
 
@@ -110,6 +117,64 @@ public class UserService: IUserService
                 Success = false
             };
     }
+
+    private async Task<string> GenerateRefreshToken(string userId)
+    {
+        var bytesOfToken = new byte[32];
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(bytesOfToken);
+        }
+
+        var token = Convert.ToBase64String(bytesOfToken);
+
+        var newRefresh = new UserRefreshToken()
+        {
+            ExpirationDate = DateTime.UtcNow.AddDays(3),
+            Token = token,
+            UserId = userId
+        };
+
+        _db.UserRefreshTokens.Add(newRefresh);
+        await _db.SaveChangesAsync();
+
+        return token;
+    }
+
+    public async Task<RenewTokenResponse> RenewTokenAsync(RenewTokenRequestDto request)
+    {
+        var existingRefreshToken = await _db.UserRefreshTokens
+            .Where(_ => _.UserId == request.UserId &&
+                        _.Token == request.RefreshToken &&
+                        _.ExpirationDate > DateTime.UtcNow)
+            .FirstOrDefaultAsync();
+
+        if (existingRefreshToken is null)
+        {
+            return new RenewTokenResponse() { Success = false};
+        }
+
+        _db.UserRefreshTokens.Remove(existingRefreshToken);
+        await _db.SaveChangesAsync();
+
+        var user = await _manager.FindByIdAsync(request.UserId);
+
+        var reloginResponse = await LoginAsync(_mapper.Map<LoginUserDto>(user));
+        if (reloginResponse.Success)
+        {
+            return new RenewTokenResponse()
+            {
+                Token = reloginResponse.Message,
+                RefreshToken = reloginResponse.RefreshToken
+            };
+        }
+        else
+        {
+            return new RenewTokenResponse() { Success = false };
+        }
+    }
+    
+    
     
     
     

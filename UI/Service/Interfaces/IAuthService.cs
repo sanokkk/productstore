@@ -5,9 +5,9 @@ namespace UI.Service.Interfaces;
 
 public interface IAuthService
 {
-    Task<IBaseReponse<string>> RegisterAsync(RegisterDto model);
+    Task<IBaseReponse> RegisterAsync(RegisterDto model);
 
-    Task<IBaseReponse<string>> LoginAsync(LoginDto model);
+    Task<IBaseReponse> LoginAsync(LoginDto model);
 
-    Task<IBaseReponse<MyUser>> GetAsync();
+    Task<IBaseReponse> GetAsync();
 }

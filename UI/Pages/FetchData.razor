@@ -2,9 +2,12 @@
 @using System.Net
 @using System.Net.Http.Headers
 @using System.Net.Mime
+@using Microsoft.AspNetCore.Authorization
 @inject IHttpClientFactory _factory;
+@attribute [Authorize]
 
 <PageTitle>Weather forecast</PageTitle>
+
 
 <h1>Weather forecast</h1>
 

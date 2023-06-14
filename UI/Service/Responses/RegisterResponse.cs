@@ -2,7 +2,7 @@
 
 namespace UI.Service.Responses;
 
-public class RegisterResponse: IBaseReponse<string>
+public class RegisterResponse: IBaseReponse
 {
     public bool Success { get; set; } = true;
     public List<string> Errors { get; set; }
