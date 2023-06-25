@@ -48,11 +48,10 @@ builder.Services.AddAuthentication(opt =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AuthSettings:Key"])),
         ValidateIssuerSigningKey = true,
         ValidAudience = builder.Configuration["AuthSettings:Audience"],
-        ValidIssuer = builder.Configuration["AuthSettings:Issuer"],
-        ClockSkew = TimeSpan.Zero
+        ValidIssuer = builder.Configuration["AuthSettings:Issuer"]
     };
 });
-
+ 
 var app = builder.Build();
 
 

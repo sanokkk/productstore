@@ -13,8 +13,7 @@ public class User: IdentityUser
 
     public DateTime CreatedAt { get; set; }
 
-    //[EmailAddress]
-    //public string Email { get; set; } = "";
+    public double Balance { get; set; }
     
     [Phone]
     public string PhoneNumber { get; set; } = "+7";
