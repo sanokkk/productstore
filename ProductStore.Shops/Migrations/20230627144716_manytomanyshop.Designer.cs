@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductStore.Shops.Shops.DAL;
 
@@ -10,9 +11,11 @@ using ProductStore.Shops.Shops.DAL;
 namespace ProductStore.Shops.Migrations
 {
     [DbContext(typeof(ShopsContext))]
-    partial class ShopsContextModelSnapshot : ModelSnapshot
+    [Migration("20230627144716_manytomanyshop")]
+    partial class manytomanyshop
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

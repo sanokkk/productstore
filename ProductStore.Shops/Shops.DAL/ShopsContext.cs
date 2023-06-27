@@ -10,11 +10,13 @@ public class ShopsContext: DbContext
     public ShopsContext(DbContextOptions<ShopsContext> options)
         : base(options)
     {
-        //Database.EnsureCreated();
     }
     
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductType> ProductTypes { get; set; }
+    public DbSet<Shop> Shops { get; set; }
+    
+    public DbSet<ProductShop> ProductsShops { get; set; }
     public DbSet<ProductsWithTypes> ProductsWithTypes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,5 +29,8 @@ public class ShopsContext: DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductConfig).Assembly);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductTypeConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsWithTypesConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductShopConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShopConfig).Assembly);
     }
 }

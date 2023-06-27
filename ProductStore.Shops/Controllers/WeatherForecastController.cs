@@ -23,7 +23,16 @@ public class WeatherForecastController : ControllerBase
     
     public IActionResult GetAuth()
     {
-        var product = _context.Products.Include(i => i.ProductTypes).First();
+        var product = _context.Products
+            .Include(i => i.ProductsWithTypes)
+            .ThenInclude(ti => ti.ProductType)
+            .ToArray();
         return Ok(product);
+    }
+
+    [HttpGet("Cat")]
+    public IActionResult GetCategories()
+    {
+        return Ok();
     }
 }
