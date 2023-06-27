@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductStore.Shops.Shops.DAL;
+using ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 using ProductStore.Shops.Shops.Domain.Domain.ManyToManyModels;
 using ProductStore.Shops.Shops.Domain.Domain.Models;
 
@@ -12,21 +13,18 @@ namespace ProductStore.Shops.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private readonly ShopsContext _context;
+    private readonly IProductRepo _productRepo;
 
-    public WeatherForecastController(ShopsContext context)
+    public WeatherForecastController(IProductRepo productRepo)
     {
-        _context = context;
+        _productRepo = productRepo;
     }
 
     [HttpGet]
     
-    public IActionResult GetAuth()
+    public async Task<IActionResult> GetAuth([FromQuery]int typeId ,CancellationToken cancellationToken)
     {
-        var product = _context.Products
-            .Include(i => i.ProductsWithTypes)
-            .ThenInclude(ti => ti.ProductType)
-            .ToArray();
+        var product = await _productRepo.GetByTypeAsync(typeId, cancellationToken);
         return Ok(product);
     }
 

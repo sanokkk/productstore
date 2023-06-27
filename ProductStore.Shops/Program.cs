@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProductStore.Shops.Shops.DAL;
+using ProductStore.Shops.Shops.DAL.Repositories.Implementations;
+using ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 builder.Services.AddDbContext<ShopsContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL")));
+
+builder.Services.AddScoped<IProductRepo, ProductRepo>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

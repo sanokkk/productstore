@@ -15,9 +15,11 @@ public class ShopsContext: DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductType> ProductTypes { get; set; }
     public DbSet<Shop> Shops { get; set; }
-    
+    public DbSet<Card> Cards { get; set; }
+
     public DbSet<ProductShop> ProductsShops { get; set; }
     public DbSet<ProductsWithTypes> ProductsWithTypes { get; set; }
+    public DbSet<ProductCard> ProductsCards { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -32,5 +34,7 @@ public class ShopsContext: DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsWithTypesConfig).Assembly);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductShopConfig).Assembly);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShopConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CardConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductCardConfig).Assembly);
     }
 }
