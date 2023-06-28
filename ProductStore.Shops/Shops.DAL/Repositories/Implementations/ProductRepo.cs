@@ -4,46 +4,16 @@ using ProductStore.Shops.Shops.Domain.Domain.Models;
 
 namespace ProductStore.Shops.Shops.DAL.Repositories.Implementations;
 
-public class ProductRepo: IProductRepo
+public class ProductRepo:BaseRepo<Product>, IProductRepo 
 {
-    private readonly ShopsContext _context;
-
     public ProductRepo(ShopsContext context)
+        : base(context)
     {
-        _context = context;
     }
-
-
-    public async Task AddAsync(Product entity, CancellationToken cancellationToken)
-    {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        _context.Products.Add(entity);
-        await _context.SaveChangesAsync(cancellationToken);
-    }
-
-    public async Task EditAsync(Product entity, CancellationToken cancellationToken)
-    {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        _context.Products.Update(entity);
-        await _context.SaveChangesAsync(cancellationToken);
-    }
-
-    public async Task DeleteAsync(Product entity, CancellationToken cancellationToken)
-    {
-        cancellationToken.ThrowIfCancellationRequested();
-
-        _context.Products.Remove(entity);
-        await _context.SaveChangesAsync(cancellationToken);
-    }
-
-    
-
     public async Task<Product> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        return (await _context.Products.FirstOrDefaultAsync(f => f.Id == id, cancellationToken))!;
+        return (await base.GetByIdAsync(f => f.Id == id, cancellationToken));
     }
 
     public async Task<ICollection<Product>> GetByShopAsync(int shopId, CancellationToken cancellationToken)
