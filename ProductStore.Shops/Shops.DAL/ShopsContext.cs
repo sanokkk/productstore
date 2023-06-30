@@ -14,7 +14,7 @@ public class ShopsContext: DbContext
     
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductType> ProductTypes { get; set; }
-    public DbSet<Shop> Shops { get; set; }
+    public DbSet<Domain.Domain.Models.Shop> Shops { get; set; }
     public DbSet<Card> Cards { get; set; }
 
     public DbSet<ProductShop> ProductsShops { get; set; }

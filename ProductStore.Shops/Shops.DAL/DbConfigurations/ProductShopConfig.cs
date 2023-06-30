@@ -16,7 +16,7 @@ public class ProductShopConfig: IEntityTypeConfiguration<ProductShop>
         builder.HasOne<Product>(pr => pr.Product)
             .WithMany(m => m.ProductsShops)
             .HasForeignKey(fk => fk.ProductId);
-        builder.HasOne<Shop>(sh => sh.Shop)
+        builder.HasOne<Domain.Domain.Models.Shop>(sh => sh.Shop)
             .WithMany(m => m.ProductsShops)
             .HasForeignKey(fk => fk.ShopId);
     }

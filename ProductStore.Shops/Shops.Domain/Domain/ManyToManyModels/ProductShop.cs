@@ -8,7 +8,7 @@ public class ProductShop
     public Product Product { get; set; }
 
     public int ShopId { get; set; }
-    public Shop Shop { get; set; }
+    public Models.Shop Shop { get; set; }
     
     public int Quantity { get; set; }
 }

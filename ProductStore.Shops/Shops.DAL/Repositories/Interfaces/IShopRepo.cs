@@ -2,9 +2,9 @@
 
 namespace ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 
-public interface IShopRepo: IBaseRepo<Shop>
+public interface IShopRepo: IBaseRepo<Domain.Domain.Models.Shop>
 {
-    Task<Shop> GetByIdAsync(int id, CancellationToken cancellationToken);
+    Task<Domain.Domain.Models.Shop> GetByIdAsync(int id, CancellationToken cancellationToken);
 
-    Task<ICollection<Shop>> GetAllAsync(CancellationToken cancellationToken);
+    Task<ICollection<Domain.Domain.Models.Shop>> GetAllAsync(CancellationToken cancellationToken);
 }

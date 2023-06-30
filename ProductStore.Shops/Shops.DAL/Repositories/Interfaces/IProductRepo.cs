@@ -1,4 +1,6 @@
-﻿using ProductStore.Shops.Shops.Domain.Domain.Models;
+﻿using System.Net;
+using System.Net.Mime;
+using ProductStore.Shops.Shops.Domain.Domain.Models;
 
 namespace ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 

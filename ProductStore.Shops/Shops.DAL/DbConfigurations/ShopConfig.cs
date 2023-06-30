@@ -4,9 +4,9 @@ using ProductStore.Shops.Shops.Domain.Domain.Models;
 
 namespace ProductStore.Shops.Shops.DAL.DbConfigurations;
 
-public class ShopConfig: IEntityTypeConfiguration<Shop>
+public class ShopConfig: IEntityTypeConfiguration<Domain.Domain.Models.Shop>
 {
-    public void Configure(EntityTypeBuilder<Shop> builder)
+    public void Configure(EntityTypeBuilder<Domain.Domain.Models.Shop> builder)
     {
         builder.ToTable("shops");
         builder.HasKey(k => k.Id);

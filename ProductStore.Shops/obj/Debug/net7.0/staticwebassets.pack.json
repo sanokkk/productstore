@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\File",
+      "PackagePath": "staticwebassets\\Pictures"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto",
+      "PackagePath": "staticwebassets\\Pictures"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\myphoto.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\oldphoto.jpeg",
+      "PackagePath": "staticwebassets\\Pictures\\oldphoto.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\screen.png",
+      "PackagePath": "staticwebassets\\Pictures\\screen.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ProductStore.Shops.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.ProductStore.Shops.props",
+      "PackagePath": "build\\ProductStore.Shops.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ProductStore.Shops.props",
+      "PackagePath": "buildMultiTargeting\\ProductStore.Shops.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.ProductStore.Shops.props",
+      "PackagePath": "buildTransitive\\ProductStore.Shops.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

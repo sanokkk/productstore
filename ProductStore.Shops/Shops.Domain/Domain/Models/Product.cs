@@ -9,9 +9,13 @@ public class Product
     public string Name { get; set; }
     
     public double Price { get; set; }
+    
+    public string ImagePath { get; set; } = String.Empty;
     public List<ProductsWithTypes> ProductsWithTypes { get; set; } = new();
 
     public List<ProductShop> ProductsShops { get; set; } = new();
 
     public List<ProductCard> ProductsCards { get; set; } = new();
+    
+    
 }

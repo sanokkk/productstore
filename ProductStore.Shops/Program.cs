@@ -2,9 +2,14 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ProductStore.Shops.Shop.BLL.Services.Implementations;
+using ProductStore.Shops.Shop.BLL.Services.Interfaces;
 using ProductStore.Shops.Shops.DAL;
 using ProductStore.Shops.Shops.DAL.Repositories.Implementations;
+using ProductStore.Shops.Shops.DAL.Repositories.Implementations.ManyToManyRepo;
 using ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
+using ProductStore.Shops.Shops.DAL.Repositories.Interfaces.ManyToManyInterfaces;
+using ProductStore.Shops.Shops.Domain.Domain.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +21,16 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddDbContext<ShopsContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL")));
 
+//Репозитории
 builder.Services.AddScoped<IProductRepo, ProductRepo>();
+builder.Services.AddScoped<IShopRepo, ShopRepo>();
+builder.Services.AddScoped<IProductTypeRepo, ProductTypeRepo>();
+builder.Services.AddScoped<IProductsWithTypesRepo, ProductsWithTypesRepo>();
+builder.Services.AddScoped<IProductsShopsRepo, ProductsShopsRepo>();
+
+//Сервисы
+builder.Services.AddScoped<IProductService, ProductService>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

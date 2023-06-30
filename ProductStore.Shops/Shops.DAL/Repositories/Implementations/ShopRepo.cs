@@ -4,19 +4,19 @@ using ProductStore.Shops.Shops.Domain.Domain.Models;
 
 namespace ProductStore.Shops.Shops.DAL.Repositories.Implementations;
 
-public class ShopRepo: BaseRepo<Shop>, IShopRepo
+public class ShopRepo: BaseRepo<Domain.Domain.Models.Shop>, IShopRepo
 {
     public ShopRepo(ShopsContext _context)
     :base(_context)
     {
     }
     
-    public async Task<Shop> GetByIdAsync(int id, CancellationToken cancellationToken)
+    public async Task<Domain.Domain.Models.Shop> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
         return await base.GetByIdAsync(f => f.Id == id, cancellationToken);
     }
 
-    public async Task<ICollection<Shop>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<ICollection<Domain.Domain.Models.Shop>> GetAllAsync(CancellationToken cancellationToken)
     {
         return await _context.Shops.ToArrayAsync(cancellationToken);
     }
