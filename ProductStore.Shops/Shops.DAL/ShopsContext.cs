@@ -20,11 +20,7 @@ public class ShopsContext: DbContext
     public DbSet<ProductShop> ProductsShops { get; set; }
     public DbSet<ProductsWithTypes> ProductsWithTypes { get; set; }
     public DbSet<ProductCard> ProductsCards { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        base.OnConfiguring(optionsBuilder);
-    }
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

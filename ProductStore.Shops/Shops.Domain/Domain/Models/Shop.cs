@@ -4,7 +4,7 @@ namespace ProductStore.Shops.Shops.Domain.Domain.Models;
 
 public class Shop
 {
-    public int Id { get; init; }
+    public int Id { get; set; }
     
     public string Address { get; init; }
     

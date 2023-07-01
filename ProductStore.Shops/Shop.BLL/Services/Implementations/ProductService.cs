@@ -122,10 +122,14 @@ public class ProductService : IProductService
                 };
 
                 var productsAndTypes = CreateManyToMany(product, request.TypeIds);
-
-                await _productsShops.AddAsync(ProductShop, cancellationToken);
+                
+                product.ProductsShops.Add(ProductShop);
+                foreach (var el in productsAndTypes)
+                {
+                    product.ProductsWithTypes.Add(el);
+                }
+                
                 await _productRepo.AddAsync(product, cancellationToken);
-                await AddProdWithTypes(productsAndTypes, cancellationToken);
                 response.Product = product;
             }
             catch (Exception ex)

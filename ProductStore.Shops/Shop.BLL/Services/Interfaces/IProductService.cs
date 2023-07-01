@@ -11,4 +11,7 @@ public interface IProductService
     Task<GetAllResponse> GetAllAsync(CancellationToken cancellationToken);
 
     Task<GetByIdResponse> GetByIdAsync(int productId, CancellationToken cancellationToken);
+
+    Task<CreateProductResponse> CreeateAsync(CreateProductRequest request,
+        CancellationToken cancellationToken);
 }

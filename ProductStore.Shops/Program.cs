@@ -19,7 +19,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 builder.Services.AddDbContext<ShopsContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL")));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"))
+        .EnableSensitiveDataLogging());
 
 //Репозитории
 builder.Services.AddScoped<IProductRepo, ProductRepo>();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MVuLzx73jbhVhAZr5+R8fg6MkVRSAmY8IwQ3mlhUiao=",
+  "Hash": "FvZK+neFjzGVLuIkWxP3SNtcCfUHi8Gxy82FyU0DPBE=",
   "Source": "ProductStore.Shops",
   "BasePath": "_content/ProductStore.Shops",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\File",
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\kefir.png",
       "SourceId": "ProductStore.Shops",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
       "BasePath": "_content/ProductStore.Shops",
-      "RelativePath": "Pictures/File",
+      "RelativePath": "Pictures/kefir.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Pictures\\File"
+      "OriginalItemSpec": "wwwroot\\Pictures\\kefir.png"
     },
     {
-      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto",
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\moloko.png",
       "SourceId": "ProductStore.Shops",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
       "BasePath": "_content/ProductStore.Shops",
-      "RelativePath": "Pictures/myphoto",
+      "RelativePath": "Pictures/moloko.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,7 +48,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Pictures\\myphoto"
+      "OriginalItemSpec": "wwwroot\\Pictures\\moloko.png"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto.jpeg",
@@ -100,6 +100,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pictures\\screen.png"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\sirok.png",
+      "SourceId": "ProductStore.Shops",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
+      "BasePath": "_content/ProductStore.Shops",
+      "RelativePath": "Pictures/sirok.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\sirok.png"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\smetana.png",
+      "SourceId": "ProductStore.Shops",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
+      "BasePath": "_content/ProductStore.Shops",
+      "RelativePath": "Pictures/smetana.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\smetana.png"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\tvorog.png",
+      "SourceId": "ProductStore.Shops",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
+      "BasePath": "_content/ProductStore.Shops",
+      "RelativePath": "Pictures/tvorog.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\tvorog.png"
     }
   ]
 }

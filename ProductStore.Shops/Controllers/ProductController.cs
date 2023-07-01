@@ -46,7 +46,21 @@ public class ProductController: ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateAsync([FromForm]CreateProductRequest request, CancellationToken cancellationToken)
     {
-        cancellationToken.ThrowIfCancellationRequested();
-        return Ok();
+        cancellationToken.ThrowIfCancellationRequested(); 
+
+        var response = await _service.CreeateAsync(request, cancellationToken);
+
+        if (response.IsSuccess)
+        {
+            _logger.LogInformation("Added product");
+            var name = nameof(GetByIdAsync);
+            return CreatedAtAction("GetById", new {id = response.Product.Id}, response.Product);
+        }
+        
+        
+        _logger.LogError("Error while addidng product");
+        return BadRequest();
     }
+    
+    
 }

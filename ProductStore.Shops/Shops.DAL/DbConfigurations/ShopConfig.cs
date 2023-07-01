@@ -8,7 +8,10 @@ public class ShopConfig: IEntityTypeConfiguration<Domain.Domain.Models.Shop>
 {
     public void Configure(EntityTypeBuilder<Domain.Domain.Models.Shop> builder)
     {
+        
+        
         builder.ToTable("shops");
         builder.HasKey(k => k.Id);
+
     }
 }

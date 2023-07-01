@@ -1,12 +1,12 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\File",
-      "PackagePath": "staticwebassets\\Pictures"
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\kefir.png",
+      "PackagePath": "staticwebassets\\Pictures\\kefir.png"
     },
     {
-      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto",
-      "PackagePath": "staticwebassets\\Pictures"
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\moloko.png",
+      "PackagePath": "staticwebassets\\Pictures\\moloko.png"
     },
     {
       "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\myphoto.jpeg",
@@ -19,6 +19,18 @@
     {
       "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\screen.png",
       "PackagePath": "staticwebassets\\Pictures\\screen.png"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\sirok.png",
+      "PackagePath": "staticwebassets\\Pictures\\sirok.png"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\smetana.png",
+      "PackagePath": "staticwebassets\\Pictures\\smetana.png"
+    },
+    {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\tvorog.png",
+      "PackagePath": "staticwebassets\\Pictures\\tvorog.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ProductStore.Shops.Microsoft.AspNetCore.StaticWebAssets.props",
