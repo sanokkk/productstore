@@ -82,3 +82,5 @@ C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0
 C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0\ProductStore.Shops.staticwebassets.runtime.json
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Shops\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

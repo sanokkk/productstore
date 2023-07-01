@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProductStore.Shops.Shop.BLL.Dtos.Requests.Products;
 using ProductStore.Shops.Shop.BLL.Services.Interfaces;
 
@@ -61,6 +62,6 @@ public class ProductController: ControllerBase
         _logger.LogError("Error while addidng product");
         return BadRequest();
     }
-    
-    
+
+
 }

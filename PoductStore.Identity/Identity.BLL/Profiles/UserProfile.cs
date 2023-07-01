@@ -24,7 +24,10 @@ public class UserProfile: Profile
                     .MapFrom(src => src.FullName))
             .ForMember(dst => dst.UserName,
                 opt => opt
-                    .MapFrom(src => src.UserName));
+                    .MapFrom(src => src.UserName))
+            .ForMember(dst => dst.Balance,
+                opt => opt
+                    .MapFrom(src => src.Salary));
         CreateMap<User, LoginUserDto>();
 
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FvZK+neFjzGVLuIkWxP3SNtcCfUHi8Gxy82FyU0DPBE=",
+  "Hash": "L9veeI/u69oMNQ+pWbgSGamTuEUsJjdz1UnAd8UllQ8=",
   "Source": "ProductStore.Shops",
   "BasePath": "_content/ProductStore.Shops",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pictures\\smetana.png"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\sosiska.jpeg",
+      "SourceId": "ProductStore.Shops",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\",
+      "BasePath": "_content/ProductStore.Shops",
+      "RelativePath": "Pictures/sosiska.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\sosiska.jpeg"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Shops\\wwwroot\\Pictures\\tvorog.png",

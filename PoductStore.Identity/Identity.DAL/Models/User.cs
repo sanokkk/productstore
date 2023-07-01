@@ -15,6 +15,8 @@ public class User: IdentityUser
 
     public double Balance { get; set; }
     
+    public double Salary { get; set; }
+    
     [Phone]
     public string PhoneNumber { get; set; } = "+7";
 }

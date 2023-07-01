@@ -21,4 +21,7 @@ public class RegisterUserDto
     [Required]
     [Compare(nameof(Password))]
     public string PasswordConfirm { get; set; }
+    
+    [Required] 
+    public double Salary { get; set; }
 }

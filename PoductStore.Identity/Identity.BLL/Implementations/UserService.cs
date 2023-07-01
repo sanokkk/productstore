@@ -72,11 +72,16 @@ public class UserService: IUserService
             response.Success = false;
         }
 
+        var claim = (user.UserName == "sanokkk")
+            ? new Claim(ClaimTypes.Role, "Admin")
+            : new Claim(ClaimTypes.Role, "User");
+
         var claims = new[]
         {
             new Claim("username", model.Username),
             new Claim("id", user.Id),
-            new Claim("email", user.Email)
+            new Claim("email", user.Email),
+            claim
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["AuthSettings:Key"]));
@@ -85,7 +90,7 @@ public class UserService: IUserService
             issuer:_configuration["AuthSettings:Issuer"],
             audience:_configuration["AuthSettings:Audience"],
             claims:claims,
-            expires:DateTime.Now.AddMinutes(3),
+            expires:DateTime.Now.AddDays(1),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
         var tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);

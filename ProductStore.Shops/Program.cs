@@ -22,6 +22,8 @@ builder.Services.AddDbContext<ShopsContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"))
         .EnableSensitiveDataLogging());
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 //Репозитории
 builder.Services.AddScoped<IProductRepo, ProductRepo>();
 builder.Services.AddScoped<IShopRepo, ShopRepo>();
@@ -31,7 +33,7 @@ builder.Services.AddScoped<IProductsShopsRepo, ProductsShopsRepo>();
 
 //Сервисы
 builder.Services.AddScoped<IProductService, ProductService>();
-
+builder.Services.AddScoped<IShopService, ShopService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
