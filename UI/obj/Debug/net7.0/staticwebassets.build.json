@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ut97H67RuTcIkYm9Rj9fY555w1zw20mIcTxk6peKu+A=",
+  "Hash": "lR2ga9DcbN0s/j7b83KBLyjQipRfNZ7zvdEAgZ3509o=",
   "Source": "UI",
   "BasePath": "/",
   "Mode": "Root",
@@ -848,6 +848,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.5\\runtimes\\browser-wasm\\lib\\net7.0\\netstandard.dll"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.dll",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/ProductStore.Exceptions.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Exceptions\\bin\\Debug\\net7.0\\ProductStore.Exceptions.dll"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.pdb",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/ProductStore.Exceptions.pdb",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "symbol",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\ProductStore.Exceptions\\bin\\Debug\\net7.0\\ProductStore.Exceptions.pdb"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.AppContext.dll",
@@ -4284,6 +4318,23 @@
       "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\ApJMzzUZ.gz",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/ProductStore.Exceptions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.dll"
+    },
+    {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\aUhvkXLm.gz",
       "SourceId": "UI",
       "SourceType": "Computed",
@@ -5846,6 +5897,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Net.WebSockets.dll"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\mnAQ1dTQ.gz",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/ProductStore.Exceptions.pdb.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.pdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\ProductStore.Exceptions.pdb"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\MY1n3hvE.gz",

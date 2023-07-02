@@ -876,3 +876,11 @@ C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\O4UmIV
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\bR8F+2iX.gz
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\+Zd05hZT.gz
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\GktENA++.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\ProductStore.Exceptions.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\ProductStore.Exceptions.pdb
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\ProductStore.Exceptions.dll.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\ProductStore.Exceptions.pdb.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\ProductStore.Exceptions.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\ProductStore.Exceptions.pdb
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\ApJMzzUZ.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\mnAQ1dTQ.gz

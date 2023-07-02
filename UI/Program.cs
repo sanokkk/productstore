@@ -12,16 +12,14 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// builder.Services.AddScoped(sp => new HttpClient()
-// {
-//     BaseAddress = new Uri("http://localhost:5165"),
-// });
+
 
 builder.Services.AddHttpClient("Sanokkk", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5165");
 }).AddHttpMessageHandler<CustomHttpHandler>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IShopService, ShopService>();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
 builder.Services.AddAuthorizationCore();

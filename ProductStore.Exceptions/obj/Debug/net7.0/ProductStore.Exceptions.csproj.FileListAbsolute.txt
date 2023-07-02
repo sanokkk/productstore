@@ -1,0 +1,12 @@
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\bin\Debug\net7.0\ProductStore.Exceptions.deps.json
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\bin\Debug\net7.0\ProductStore.Exceptions.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\bin\Debug\net7.0\ProductStore.Exceptions.pdb
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.csproj.AssemblyReference.cache
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.AssemblyInfoInputs.cache
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.AssemblyInfo.cs
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\refint\ProductStore.Exceptions.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ProductStore.Exceptions.pdb
+C:\Users\san_okkk\RiderProjects\ProductStore\ProductStore.Exceptions\obj\Debug\net7.0\ref\ProductStore.Exceptions.dll

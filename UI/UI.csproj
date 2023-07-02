@@ -26,4 +26,8 @@
       <Reference Include="Microsoft.Extensions.Http" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ProductStore.Exceptions\ProductStore.Exceptions.csproj" />
+    </ItemGroup>
+
 </Project>

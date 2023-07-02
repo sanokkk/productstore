@@ -1,0 +1,52 @@
+﻿@page "/AllShops"
+@using global::UI.UI.Domain.Models
+@using global::UI.Service.Responses
+@using global::UI.Service.Interfaces
+@using System.Data
+@inject IShopService _shopService
+<div class="wrapper">
+    <h1>Выберите нужный магазин:</h1>
+    <h3>Список магазинов</h3>
+    <div class="shops">
+        @if (_response is null)
+        {
+            <p class="text-center alert-danger text-danger">Загрузка</p>
+        }
+        else
+        {
+            foreach (var el in _response.Shops)
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-title">@el.Name</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@el.Address</p>
+                    </div>
+                </div>    
+            }
+        }
+    </div>
+</div>
+
+
+@code {
+    private GetAllShopsResponse _response;
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        var tokenSource = new CancellationTokenSource();
+        tokenSource.CancelAfter(5000);
+        var token = tokenSource.Token;
+        var response = await _shopService.GetShopsAsync(token); 
+        
+        SetResponse(response);
+    }
+
+    private void SetResponse(GetAllShopsResponse response)
+    {
+        _response = response;
+        StateHasChanged();
+    }
+}
