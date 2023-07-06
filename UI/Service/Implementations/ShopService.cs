@@ -30,12 +30,10 @@ public class ShopService: IShopService
         {
             var uri = new Uri("http://localhost:5125/api/Shop");
             var response = await _httpClient.GetAsync(uri);
-            //var response = await _httpClient.GetFromJsonAsync<Shop[]>(uri);
-            //result.Shops = response;
             if (response.IsSuccessStatusCode)
             {
                 var shops = await response.Content.ReadFromJsonAsync<Shop[]>();
-                result.Shops = shops;
+                result.Shops = shops!;
             }
             else
             {
@@ -50,6 +48,33 @@ public class ShopService: IShopService
         catch (Exception ex)
         {
             _logger.LogError($"Error while getting shops: {ex.Message}");
+            result.Success = false;
+        }
+
+        return result;
+    }
+
+    public async Task<GetShopProductsResponse> GetShopProductsAsync(string shopId, CancellationToken token)
+    {
+        var result = new GetShopProductsResponse();
+        try
+        {
+            token.ThrowIfCancellationRequested();
+            result.Products = (await _httpClient.GetFromJsonAsync<Product[]>(ControllerPath + "/" + shopId, token))!;
+        }
+        catch (NullReferenceException ex)
+        {
+            _logger.LogError("Null products list");
+            result.Success = false;
+        }
+        catch (OperationCanceledException ex)
+        {
+            _logger.LogError("Operation was canceled");
+            result.Success = false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error while getting products in shop: {ex.Message}");
             result.Success = false;
         }
 

@@ -9,12 +9,14 @@ namespace ProductStore.Shops.Controllers;
 public class ShopController: ControllerBase
 {
     private readonly IShopService _shopService;
+    private readonly IProductService _productService;
     private readonly ILogger<ShopController> _logger;
 
-    public ShopController(IShopService shopService, ILogger<ShopController> logger)
+    public ShopController(IShopService shopService, ILogger<ShopController> logger, IProductService productService)
     {
         _shopService = shopService;
         _logger = logger;
+        _productService = productService;
     }
 
     [HttpGet]
@@ -27,6 +29,18 @@ public class ShopController: ControllerBase
             return Ok(response.Shops);
         }
         _logger.LogError("Error while getting shop's list");
+        return BadRequest();
+    }
+
+    [HttpGet("{storeId:int}")]
+    public async Task<IActionResult> GetProductsInStoreAsync([FromRoute]int storeId, CancellationToken cancellationToken)
+    {
+        var response = await _shopService.GetShopProductsAsync(storeId, cancellationToken);
+        if (response.IsSuccess)
+        {
+            _logger.LogInformation("Got shop's products list");
+            return Ok(response.Products);
+        }
         return BadRequest();
     }
 }

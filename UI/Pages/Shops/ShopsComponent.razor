@@ -1,0 +1,56 @@
+﻿@using global::UI.Service.Responses
+@using global::UI.Service.Interfaces
+@using System.ComponentModel.DataAnnotations
+@inject IShopService _service
+@if (_response is not null)
+{
+    @foreach (var el in _response.Products)
+    {
+        <div class="card" style="margin: 10px;">
+            <div class="card-header">
+                <p class="card-title text-center card-header">@el.Name</p>
+            </div>
+            <div class="card-body">
+                <img alt="Фотка продукта" src="@el.ImagePath" class="card-img text-center"/>
+                <p class="card-text card-body">@el.Price Рублей</p>
+            </div>
+            <div class="card-footer">
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="btn btn-primary">Добавить в корзину</button>
+                    </Authorized>
+                </AuthorizeView>
+                <button class="btn btn-info">Информация</button>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    public GetShopProductsResponse _response;
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        var source = new CancellationTokenSource();
+        source.CancelAfter(5000);
+        string id = Id;
+
+        if (!string.IsNullOrEmpty(Id))
+        {
+            var response = await _service.GetShopProductsAsync(Id, source.Token);
+            SetResponse(response);
+        }
+            
+    }
+
+    private void SetResponse(GetShopProductsResponse response)
+    {
+        _response = response;
+        StateHasChanged();
+    }
+
+}

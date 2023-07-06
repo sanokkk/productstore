@@ -22,7 +22,6 @@ public class ProductRepo:BaseRepo<Product>, IProductRepo
         return
             await _context.ProductsShops
                 .Include(i => i.Product)
-                .Include(i => i.Shop)
                 .Where(w => w.ShopId == shopId)
                 .Select(s => s.Product)
                 .ToArrayAsync(cancellationToken);

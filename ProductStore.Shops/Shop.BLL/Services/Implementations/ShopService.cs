@@ -10,14 +10,16 @@ namespace ProductStore.Shops.Shop.BLL.Services.Implementations;
 public class ShopService: IShopService
 {
     private readonly IShopRepo _shopRepo;
+    private readonly IProductRepo _productRepo;
     private readonly ILogger<ShopService> _logger;
     private readonly IMapper _mapper;
 
-    public ShopService(IShopRepo shopRepo, ILogger<ShopService> logger, IMapper mapper)
+    public ShopService(IShopRepo shopRepo, ILogger<ShopService> logger, IMapper mapper, IProductRepo productRepo)
     {
         _shopRepo = shopRepo;
         _logger = logger;
         _mapper = mapper;
+        _productRepo = productRepo;
     }
 
     public async Task<GetAllShopsResponse> GetShopsAsync(CancellationToken cancellationToken)
@@ -35,5 +37,28 @@ public class ShopService: IShopService
         }
 
         return response;
+    }
+
+    public async Task<GetShopProductsResponse> GetShopProductsAsync(int shopId, CancellationToken cancellationToken)
+    {
+        var result = new GetShopProductsResponse();
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            var products = await _productRepo.GetByShopAsync(shopId, cancellationToken);
+            result.Products = _mapper.Map<GetProductDto[]>(products);
+        }
+        catch (OperationCanceledException ex)
+        {
+            _logger.LogError("Operation was canceled");
+            result.IsSuccess = false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error while getting products in store-{shopId}: {ex.Message}");
+            result.IsSuccess = false;
+        }
+
+        return result;
     }
 }

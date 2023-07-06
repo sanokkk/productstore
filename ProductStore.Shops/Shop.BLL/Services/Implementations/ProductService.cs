@@ -95,7 +95,7 @@ public class ProductService : IProductService
         return response;
     }
 
-    public async Task<CreateProductResponse> CreeateAsync(CreateProductRequest request,
+    public async Task<CreateProductResponse> CreateAsync(CreateProductRequest request,
         CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();

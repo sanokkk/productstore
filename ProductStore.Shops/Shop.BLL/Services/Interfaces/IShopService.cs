@@ -5,4 +5,5 @@ namespace ProductStore.Shops.Shop.BLL.Services.Interfaces;
 public interface IShopService
 {
     Task<GetAllShopsResponse> GetShopsAsync(CancellationToken cancellationToken);
+    Task<GetShopProductsResponse> GetShopProductsAsync(int shopId, CancellationToken cancellationToken);
 }

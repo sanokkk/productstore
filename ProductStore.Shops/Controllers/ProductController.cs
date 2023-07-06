@@ -49,7 +49,7 @@ public class ProductController: ControllerBase
     {
         cancellationToken.ThrowIfCancellationRequested(); 
 
-        var response = await _service.CreeateAsync(request, cancellationToken);
+        var response = await _service.CreateAsync(request, cancellationToken);
 
         if (response.IsSuccess)
         {
@@ -62,6 +62,8 @@ public class ProductController: ControllerBase
         _logger.LogError("Error while addidng product");
         return BadRequest();
     }
+    
+    
 
 
 }

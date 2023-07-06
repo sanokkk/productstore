@@ -40,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/san_okkk/RiderProjects/ProductStore/UI/Pages/Shops/Purchases.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHNcUHVyY2hhc2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/san_okkk/RiderProjects/ProductStore/UI/Pages/Shops/ShopsComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHNcU2hvcHNDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/san_okkk/RiderProjects/ProductStore/UI/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

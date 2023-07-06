@@ -28,4 +28,6 @@ builder.Services.AddScoped<CustomHttpHandler>();
 
 
 
-await builder.Build().RunAsync();
+await builder
+    .Build()
+    .RunAsync();

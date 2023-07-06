@@ -30,4 +30,10 @@
       <ProjectReference Include="..\ProductStore.Exceptions\ProductStore.Exceptions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Test\Comp1.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Test\Comp2.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Test\Test1.razor" />
+    </ItemGroup>
+
 </Project>

@@ -1,0 +1,45 @@
+﻿@page "/Purchases"
+@using global::UI.Service.Responses
+@using global::UI.Service.Interfaces
+@inject IShopService _shopService
+<h3>Purchases</h3>
+
+<EditForm  Model="_response" class="form-control">
+    <InputSelect  @bind-Value="@shopId" class="form-select">
+        <option value="">--Выберите--</option>
+        @if (_response.Success)
+        {
+            @foreach (var el in _response.Shops)
+            {
+                <option value="@el.Id.ToString()">@el?.Name, @el?.Address</option>
+            } 
+        }
+    </InputSelect>
+</EditForm>
+@if (!string.IsNullOrEmpty(shopId))
+{
+    <ShopsComponent Id="@shopId"></ShopsComponent> 
+}
+
+
+@code {
+    private string shopId { get; set; } = String.Empty;
+    private GetAllShopsResponse _response { get; set; } = new GetAllShopsResponse(){Success = false};
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        var tokenSource = new CancellationTokenSource();
+        tokenSource.CancelAfter(5000);
+        var token = tokenSource.Token;
+        var response = await _shopService.GetShopsAsync(token);
+        
+        SetResponse(response);
+    }
+
+    private void SetResponse(GetAllShopsResponse response)
+    {
+        _response = response;
+        StateHasChanged();
+    }
+}
