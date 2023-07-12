@@ -11,11 +11,6 @@
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
         <AuthorizeView>
             <Authorized>
                 <div class="nav-item px-3">
@@ -24,24 +19,24 @@
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
-                        <span class="oi" style="width: 100%;font-size: 14.4px;" aria-hidden="true">My page</span> 
+                        <span class="oi" style="width: 100%;font-size: 14.4px;" aria-hidden="true">Мой профиль</span> 
                     </NavLink>
                 </div>
-                
             </Authorized>
             <NotAuthorized>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="login">
-                        <span class="oi oi-list-rich" aria-hidden="true" style="color:white;"></span> Login
+                        <span class="oi oi-list-rich" aria-hidden="true" style="color:white;">Login</span> 
                     </NavLink>
                 </div>
             </NotAuthorized>
         </AuthorizeView>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            <NavLink class="nav-link" href="Purchases">
+                <span class="oi oi-list-rich" aria-hidden="true" style="color:white;">Каталог</span> 
             </NavLink>
         </div>
+        
     </nav>
 </div>
 

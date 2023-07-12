@@ -18,7 +18,8 @@ public class ProductService : IProductService
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<ProductService> _logger;
 
-    public ProductService(IProductRepo productRepo, IWebHostEnvironment environment, ILogger<ProductService> logger, IProductsShopsRepo productsShops, IProductsWithTypesRepo productsWithTypes)
+    public ProductService(IProductRepo productRepo, IWebHostEnvironment environment, ILogger<ProductService> logger, 
+        IProductsShopsRepo productsShops, IProductsWithTypesRepo productsWithTypes)
     {
         _productRepo = productRepo;
         _environment = environment;

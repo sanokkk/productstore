@@ -30,10 +30,12 @@ builder.Services.AddScoped<IShopRepo, ShopRepo>();
 builder.Services.AddScoped<IProductTypeRepo, ProductTypeRepo>();
 builder.Services.AddScoped<IProductsWithTypesRepo, ProductsWithTypesRepo>();
 builder.Services.AddScoped<IProductsShopsRepo, ProductsShopsRepo>();
+builder.Services.AddScoped<ICardRepo, CardRepo>();
 
 //Сервисы
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IShopService, ShopService>();
+builder.Services.AddScoped<ICardService, CardService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -20,4 +20,12 @@ public class ShopRepo: BaseRepo<Domain.Domain.Models.Shop>, IShopRepo
     {
         return await _context.Shops.ToArrayAsync(cancellationToken);
     }
+
+    public async Task DecreaseProductQuantityAsync(int shopId, int productId, int quantity)
+    {
+        (await _context.ProductsShops
+                .FirstOrDefaultAsync(x => x.ShopId == shopId && x.ProductId == productId))!
+            .Quantity -= quantity;
+        await _context.SaveChangesAsync();
+    }
 }

@@ -10,5 +10,6 @@ public class Profiles: Profile
     {
         CreateMap<Shops.Domain.Domain.Models.Shop, GetShopDto>();
         CreateMap<Product, GetProductDto>();
+        CreateMap<Card, AllCardsDto>();
     }
 }
