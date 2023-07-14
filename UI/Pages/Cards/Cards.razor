@@ -1,0 +1,77 @@
+﻿@page "/Cards"
+@using global::UI.Service.Interfaces
+@using global::UI.UI.Domain.Models
+@using Microsoft.AspNetCore.Authorization
+@inject ICurrentCardService _currentCardService
+@inject IProductService _productService 
+@attribute [Authorize]
+
+<h3 class="text-center text-black">Корзина</h3>
+<div class="flex-lg-wrap">
+    @if (CurrentCard is not null)
+    {
+        <div class="card">
+            <div class="card-header ">
+                <div class="card-title">
+                    <span>Корзина на сумму: @CurrentCard.TotalPrice.ToString() рублей</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <ol class="card-group">
+                    @foreach (var product in CurrentCard.ProductsWithQuantity.Keys)
+                    {
+                        <p class="card-text">@GetProductName(product) : @CurrentCard.ProductsWithQuantity[product].ToString() шт.</p>
+                    }
+                </ol>
+            </div>
+            <div class="card-footer">
+                <button @onclick="async() => await SendCard()">Оплатить</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="loading-progress"></div>
+    }
+    @if (!IsOpened)
+    {
+        <button class="btn btn-info" @onclick="HideAndShow">Показать прошлые покупки</button>
+    }
+    else
+    {
+        <button class="btn btn-close" @onclick="HideAndShow">Скрыть</button>
+        <CardsComponent></CardsComponent>
+    }
+</div>
+
+
+@code {
+    private Card CurrentCard { get; set; }
+    private bool IsOpened { get; set; } = false;
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        CurrentCard = await _currentCardService.GetCurrentCardAsync();
+        StateHasChanged();
+    }
+
+    private async Task<string> GetProductName(int id)
+    {
+        var product = await _productService.GetProductByIdAsync(id);
+        return product.Name;
+    }
+
+    private void HideAndShow()
+    {
+        IsOpened = !IsOpened;
+        StateHasChanged();
+    }
+
+    private async Task SendCard()
+    {
+        await _currentCardService.AddCardAsync(CurrentCard);
+        StateHasChanged();
+    }
+
+}

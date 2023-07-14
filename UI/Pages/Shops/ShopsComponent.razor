@@ -1,7 +1,9 @@
 ﻿@using global::UI.Service.Responses
 @using global::UI.Service.Interfaces
 @using System.ComponentModel.DataAnnotations
+@using global::UI.UI.Domain.Models
 @inject IShopService _service
+@inject ICurrentCardService _currentCardService
 @if (_response is not null)
 {
     @foreach (var el in _response.Products)
@@ -13,11 +15,12 @@
             <div class="card-body">
                 <img alt="Фотка продукта" src="@el.ImagePath" class="card-img text-center"/>
                 <p class="card-text card-body">@el.Price Рублей</p>
+                
             </div>
             <div class="card-footer">
                 <AuthorizeView>
                     <Authorized>
-                        <button class="btn btn-primary">Добавить в корзину</button>
+                        <button class="btn btn-primary" @onclick="async () => await AddProductToCard(el)">Добавить в корзину</button>
                     </Authorized>
                 </AuthorizeView>
                 <button class="btn btn-info">Информация</button>
@@ -45,6 +48,18 @@
             SetResponse(response);
         }
             
+    }
+
+    public async Task AddProductToCard(Product product)
+    {
+        try
+        {
+            await _currentCardService.AddProductToCard(product, int.Parse(Id));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     private void SetResponse(GetShopProductsResponse response)

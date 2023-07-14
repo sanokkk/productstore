@@ -18,8 +18,14 @@ builder.Services.AddHttpClient("Sanokkk", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5165");
 }).AddHttpMessageHandler<CustomHttpHandler>();
+
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IShopService, ShopService>();
+builder.Services.AddScoped<ICurrentCardService, CurrentCardService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICardService, CardService>();
+
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
 builder.Services.AddAuthorizationCore();

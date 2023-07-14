@@ -1,0 +1,46 @@
+﻿@using global::UI.UI.Domain.Models
+@using global::UI.Service.Interfaces
+@inject ICardService _cardService
+@inject IProductService _productService
+<h3 class="text-center text-black text-info">Прошлые покупки</h3>
+@if (Cards is not null)
+{
+    @foreach (var card in Cards)
+    {
+        if (card is not null)
+        {
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Покупка на сумму @card.TotalPrice.ToString() рублей</span>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-info" @onclick="() => GetCardInfo(card.Id)">Подробнее</button>
+                </div>
+            </div>
+        }
+    }
+}
+
+@code {
+    private Card[] Cards { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        var response = await _cardService.GetCardsAsync();
+        if (response.Success)
+            Cards = response.Cards;
+    }
+    
+    private async Task<string> GetProductName(int id)
+    {
+        var product = await _productService.GetProductByIdAsync(id);
+        return product.Name;
+    }
+
+    private void GetCardInfo(int id)
+    {
+        //РЕДИРЕКТ НА СТРАНИЦУ С ИНФОРМАЦИЕЙ
+    }
+
+}

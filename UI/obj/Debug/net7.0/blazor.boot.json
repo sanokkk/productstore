@@ -211,14 +211,14 @@
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
       "ProductStore.Exceptions.dll": "sha256-yUGymapGluk2iJEpvlWW+jWy+4sAn\/DFai6MM\/izWqc=",
-      "UI.dll": "sha256-JGo4e3Wo\/db5xDzrbynHc3vYtMHh6ZrGMBjuv0UDhZg="
+      "UI.dll": "sha256-io6L3utVIqgl6ue6jLKo9LFoD74Y2YBXCuxmD\/fhKkY="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "ProductStore.Exceptions.pdb": "sha256-MbYM64S8O3FYMtPTIZrXAp9eYUzIboBrP4MX469eJSw=",
-      "UI.pdb": "sha256-gBDC1RXHPmA7JoGR4i8Sq6veSf48iiQ7umUAshbfgZk="
+      "UI.pdb": "sha256-nBPIta1Rx5Lo7OSEbYMBhiwQZCTKkU692IsQkDEzlcQ="
     },
     "runtime": {
       "dotnet.7.0.5.i3lxskqfad.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",
