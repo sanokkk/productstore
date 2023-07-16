@@ -4,8 +4,8 @@
 @inject IShopService _shopService
 <h3>Purchases</h3>
 
-<EditForm  Model="_response" class="form-control">
-    <InputSelect  @bind-Value="@shopId" class="form-select">
+@*<EditForm  Model="_response" class="form-control">
+    <InputSelect  @bind-Value="@shopId"  class="form-select">
         <option value="">--Выберите--</option>
         @if (_response.Success)
         {
@@ -15,16 +15,28 @@
             } 
         }
     </InputSelect>
-</EditForm>
+</EditForm>*@
+
+<select class="form-select" @onchange="((ChangeEventArgs e) => ChangeParameter(e.Value.ToString()))">
+    <option value="">--Выберите--</option>
+    @if (_response.Success)
+    {
+        @foreach (var el in _response.Shops)
+        {
+            <option value="@el.Id.ToString()">@el?.Name, @el?.Address</option>
+        } 
+    }
+</select>
+
 @if (!string.IsNullOrEmpty(shopId))
 {
-    <ShopsComponent Id="@shopId"></ShopsComponent> 
+    <ShopsComponent  Id="@shopId"></ShopsComponent> 
 }
 
 
 @code {
     private string shopId { get; set; } = String.Empty;
-    private GetAllShopsResponse _response { get; set; } = new GetAllShopsResponse(){Success = false};
+    private GetAllShopsResponse _response { get; set; } = new GetAllShopsResponse() { Success = false };
 
     protected override async void OnInitialized()
     {
@@ -33,7 +45,7 @@
         tokenSource.CancelAfter(5000);
         var token = tokenSource.Token;
         var response = await _shopService.GetShopsAsync(token);
-        
+
         SetResponse(response);
     }
 
@@ -42,4 +54,13 @@
         _response = response;
         StateHasChanged();
     }
+
+    private void ChangeParameter(string val)
+    {
+        shopId = val;
+        StateHasChanged();
+    }
+
+    
+
 }

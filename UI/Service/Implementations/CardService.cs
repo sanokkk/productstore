@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Json;
 using UI.Service.Interfaces;
 using UI.Service.Responses;
+using UI.UI.Domain.Dto_S;
 using UI.UI.Domain.Models;
 
 namespace UI.Service.Implementations;
@@ -24,7 +25,7 @@ public class CardService: ICardService
         var response = new GetAllCardsResponse();
         try
         {
-            response.Cards = (await _client.GetFromJsonAsync<Card[]>(PATH))!;
+            response.Cards = (await _client.GetFromJsonAsync<PreviousCart[]>(PATH))!;
         }
         catch (NullReferenceException ex)
         {

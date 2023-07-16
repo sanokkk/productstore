@@ -35,9 +35,28 @@
 
     public GetShopProductsResponse _response;
 
+    
+
     protected override async void OnInitialized()
     {
-        base.OnInitialized();
+        base.OnParametersSet();
+        
+        
+        /*var source = new CancellationTokenSource();
+        source.CancelAfter(5000);
+        string id = Id;
+
+        if (!string.IsNullOrEmpty(Id))
+        {
+            var response = await _service.GetShopProductsAsync(Id, source.Token);
+            SetResponse(response);
+        }
+        StateHasChanged();*/
+    }
+
+    protected override async void OnParametersSet()
+    {
+        base.OnParametersSet();
         var source = new CancellationTokenSource();
         source.CancelAfter(5000);
         string id = Id;
@@ -47,7 +66,7 @@
             var response = await _service.GetShopProductsAsync(Id, source.Token);
             SetResponse(response);
         }
-            
+        StateHasChanged();
     }
 
     public async Task AddProductToCard(Product product)

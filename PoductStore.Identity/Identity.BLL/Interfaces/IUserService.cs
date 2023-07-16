@@ -10,6 +10,8 @@ public interface IUserService
 
     List<string> GetUserNames();
 
+    Task<bool> DecreaseBalance(string userId, double price, CancellationToken cancellationToken);
+
     Task<UserManagerResponse> LoginAsync(LoginUserDto model);
 
     Task<GetUserResponse> GetUserAsync(string id);

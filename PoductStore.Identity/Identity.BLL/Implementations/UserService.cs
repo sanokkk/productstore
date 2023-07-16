@@ -20,13 +20,15 @@ public class UserService: IUserService
     private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;
     private readonly UsersDbContext _db;
+    private readonly ILogger<UserService> _logger;
 
-    public UserService(UserManager<User> manager, IMapper mapper, IConfiguration configuration, UsersDbContext db)
+    public UserService(UserManager<User> manager, IMapper mapper, IConfiguration configuration, UsersDbContext db, ILogger<UserService> logger)
     {
         _manager = manager;
         _mapper = mapper;
         _configuration = configuration;
         _db = db;
+        _logger = logger;
     }
 
     public async Task<UserManagerResponse> RegisterUserAsync(RegisterUserDto model)
@@ -106,6 +108,32 @@ public class UserService: IUserService
     {
         var names = _manager.Users.Select(n => n.UserName).ToList();
         return names;
+    }
+
+    public async Task<bool> DecreaseBalance(string userId, double price, CancellationToken cancellationToken)
+    {
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var user = (await _manager.FindByIdAsync(userId))!;
+            if (user.Balance >= price)
+            {
+                user.Balance -= price;
+                await _manager.UpdateAsync(user);
+            }
+        }
+        catch (OperationCanceledException ex)
+        {
+            _logger.LogError($"Operation {nameof(DecreaseBalance)} was canceled");
+            return false;
+        }
+        catch (NullReferenceException ex)
+        {
+            _logger.LogError("There is no such user in database");
+            return false;
+        }
+        return true;
     }
 
     public async Task<GetUserResponse> GetUserAsync(string id)

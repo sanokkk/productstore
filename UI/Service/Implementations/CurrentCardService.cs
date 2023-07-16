@@ -61,8 +61,6 @@ public class CurrentCardService: ICurrentCardService
                 TotalPrice = card.TotalPrice,
                 ShopId = card.ShopId
             };
-            var content = JsonSerializer.Serialize(card);
-            //var result = await _client.PostAsJsonAsync(PATH, content);
             
             var result = await _client.PostAsync("http://localhost:5125/api/Card", JsonContent.Create(cardRequest));
             if (result.IsSuccessStatusCode)

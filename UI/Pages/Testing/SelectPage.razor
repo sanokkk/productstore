@@ -1,0 +1,17 @@
+﻿@page "/SelectPage"
+<h3>SelectPage</h3>
+
+<EditForm Model="test">
+    <InputSelect @bind-Value="test">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </InputSelect>
+</EditForm>
+
+<TestComponent Param="test"></TestComponent>
+
+@code {
+    private int test = 1;
+}

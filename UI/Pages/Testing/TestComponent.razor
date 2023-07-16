@@ -1,0 +1,22 @@
+﻿<h3>TestComponent</h3>
+
+<p>Parameter @GetText(Param)</p>
+
+@code {
+    [Parameter]
+    public int Param { get; set; }
+    
+    
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        StateHasChanged();
+    }
+
+    private string GetText(int p)
+    {
+        return $"Got p: {p}";
+    }
+
+}
