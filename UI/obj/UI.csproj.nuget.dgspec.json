@@ -103,6 +103,10 @@
               "target": "Package",
               "version": "[4.3.0, )"
             },
+            "Blazored.Modal": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            },
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
               "version": "[7.0.5, )"

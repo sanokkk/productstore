@@ -18,6 +18,8 @@ public class UserForResponse
     public string UserName { get; set; } = String.Empty;
     
     public string Email { get; set; } = String.Empty;
+    
+    public double Balance { get; set; }
 
     public static UserForResponse MapToDto(User user)
     {
@@ -25,7 +27,8 @@ public class UserForResponse
         {
             Id = user.Id,
             UserName = user.UserName,
-            Email = user.Email
+            Email = user.Email,
+            Balance = user.Balance
         };
     }
 }

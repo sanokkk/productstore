@@ -28,4 +28,13 @@ public class ShopRepo: BaseRepo<Domain.Domain.Models.Shop>, IShopRepo
             .Quantity -= quantity;
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Dictionary<int, int>> GetProductQuantityAsync(int shopId, CancellationToken cancellationToken)
+    {
+        var productQuantity = await _context.ProductsShops
+            .Where(x => x.ShopId == shopId)
+            .Select(o => new { Id = o.ProductId, Quantity = o.Quantity })
+            .ToDictionaryAsync(key => key.Id, value => value.Quantity);
+        return productQuantity;
+    }
 }

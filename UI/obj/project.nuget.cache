@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NopyOxhtOg0VM76hAQzEU3zHhXAALTfNZVh3CHPCa/FnxdQglRC/3qeZs98KLG4QLI6zpppkkHmxiGw9cCFzyA==",
+  "dgSpecHash": "hedjElsStmMthZ8kKtJT4zHggwgMJodpaYURG+moLkyEjtRnYfX48p8mBYYtV/J4dk+K9785b7DBSPyNcPY+rQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
+    "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\blazored.modal.7.1.0.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.5\\microsoft.aspnetcore.authorization.7.0.5.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.5\\microsoft.aspnetcore.components.7.0.5.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.5\\microsoft.aspnetcore.components.analyzers.7.0.5.nupkg.sha512",
@@ -43,7 +44,6 @@
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
-    "C:\\Users\\san_okkk\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net461\\1.0.3\\microsoft.netframework.referenceassemblies.net461.1.0.3.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\runtime.any.system.collections\\4.3.0\\runtime.any.system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\runtime.any.system.diagnostics.tracing\\4.3.0\\runtime.any.system.diagnostics.tracing.4.3.0.nupkg.sha512",
     "C:\\Users\\san_okkk\\.nuget\\packages\\runtime.any.system.globalization\\4.3.0\\runtime.any.system.globalization.4.3.0.nupkg.sha512",

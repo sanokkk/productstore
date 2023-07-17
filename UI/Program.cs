@@ -1,4 +1,5 @@
 using Blazored.LocalStorage;
+using Blazored.Modal;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -31,6 +32,8 @@ builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
 builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped<CustomHttpHandler>();
+
+builder.Services.AddBlazoredModal();
 
 
 

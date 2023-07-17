@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lR2ga9DcbN0s/j7b83KBLyjQipRfNZ7zvdEAgZ3509o=",
+  "Hash": "iZwfR+GvZjskJsLZfJ3shPaQHmMGLQc1wi6Hedotmoo=",
   "Source": "UI",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\Blazored.Modal.bundle.scp.css",
+      "SourceId": "Blazored.Modal",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Modal",
+      "RelativePath": "Blazored.Modal.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\Blazored.Modal.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\BlazoredModal.razor.js",
+      "SourceId": "Blazored.Modal",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Modal",
+      "RelativePath": "BlazoredModal.razor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\staticwebassets\\BlazoredModal.razor.js"
+    },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.boot.json",
       "SourceId": "UI",
@@ -66,6 +100,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.localstorage\\4.3.0\\lib\\net7.0\\Blazored.LocalStorage.dll"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Blazored.Modal.dll",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Modal.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\.nuget\\packages\\blazored.modal\\7.1.0\\lib\\net6.0\\Blazored.Modal.dll"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\dotnet.7.0.5.i3lxskqfad.js",
@@ -7038,6 +7089,23 @@
       "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.ComponentModel.Annotations.dll"
     },
     {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\XAkKMNcP.gz",
+      "SourceId": "UI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Modal.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Blazored.Modal.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Blazored.Modal.dll"
+    },
+    {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\obj\\Debug\\net7.0\\build-gz\\xh1gKfkP.gz",
       "SourceId": "UI",
       "SourceType": "Computed",
@@ -7580,6 +7648,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\css\\SelectPage.css",
+      "SourceId": "UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/SelectPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SelectPage.css"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\favicon.png",

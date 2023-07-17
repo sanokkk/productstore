@@ -17,10 +17,29 @@
                 </div>
             </div>
             <div class="card-body">
-                <ol class="card-group">
-                    @foreach (var product in CurrentCard.ProductsWithQuantity.Keys)
+                <ol class="card-group flex-column">
+                @foreach (var product in CurrentCard.ProductsWithQuantity.Keys)
                     {
-                        <p class="card-text">@ProductNames[product]: @CurrentCard.ProductsWithQuantity[product].ToString() шт.</p>
+                        <div class=flex-lg-row>
+                            <p class="card-text">@ProductNames[product]: @CurrentCard.ProductsWithQuantity[product].ToString() шт.</p>
+                            <div id="wrapper">
+                                <button class="plusminus" @onclick="() => 
+                                    { if (CurrentCard.ProductsWithQuantity[product] > 1) 
+                                        CurrentCard.ProductsWithQuantity[product]--; 
+                                        StateHasChanged();}">
+                                    -
+                                </button>
+                                <p class="num">@CurrentCard.ProductsWithQuantity[product].ToString()</p>
+                                <button class="plusminus"  @onclick="() => { 
+                                    if (ProductQuantity[product] >=CurrentCard.ProductsWithQuantity[product])
+                                        CurrentCard.ProductsWithQuantity[product]++; 
+                                        StateHasChanged();
+                                    }">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        
                     }
                 </ol>
             </div>
@@ -28,6 +47,10 @@
                 <button @onclick="async() => await SendCard()">Оплатить</button>
             </div>
         </div>
+        @if (Payed is not null && Payed == false)
+        {
+            <span class="text-danger text-center">Ошибка при оплате</span>
+        }
     }
     else
     {
@@ -43,19 +66,24 @@
         <CardsComponent></CardsComponent>
     }
 </div>
-
+<link href="css/SelectPage.css" rel="stylesheet"/>
 
 @code {
     private Card? CurrentCard { get; set; }
     private bool IsOpened { get; set; } = false;
     private Dictionary<int, string>? ProductNames = new Dictionary<int, string>();
-
+    private Dictionary<int, int>? ProductQuantity = new Dictionary<int, int>();
+    private bool? Payed;
+    
     protected override async void OnInitialized()
     {
         base.OnInitialized();
         CurrentCard = await _currentCardService.GetCurrentCardAsync();
         if (CurrentCard is not null)
+        {
             await GetProductName();
+            await GetProductQuantity();
+        }
         StateHasChanged();
     }
 
@@ -68,6 +96,13 @@
         }
     }
 
+    private async Task GetProductQuantity()
+    {
+        var response = await _currentCardService.GetProductQuantityAsync(CurrentCard.ShopId);
+        if (response.IsSuccess)
+            ProductQuantity = response.ProductQuantity;
+    }
+
     private void HideAndShow()
     {
         IsOpened = !IsOpened;
@@ -76,9 +111,21 @@
 
     private async Task SendCard()
     {
-        await _currentCardService.AddCardAsync(CurrentCard);
-        ProductNames = new Dictionary<int, string>();
-        StateHasChanged();
+        if (await _currentCardService.IsCartPay(CurrentCard.TotalPrice))
+        {
+            await _currentCardService.AddCardAsync(CurrentCard);
+            ProductNames = new Dictionary<int, string>();
+            StateHasChanged();    
+        }
+        Payed = false;
+    }
+
+    private async Task GetProductsQuantity()
+    {
+        if (CurrentCard is not null)
+        {
+            
+        }
     }
 
 }

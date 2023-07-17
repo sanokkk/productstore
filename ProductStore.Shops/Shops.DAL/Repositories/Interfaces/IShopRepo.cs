@@ -8,4 +8,5 @@ public interface IShopRepo: IBaseRepo<Domain.Domain.Models.Shop>
 
     Task<ICollection<Domain.Domain.Models.Shop>> GetAllAsync(CancellationToken cancellationToken);
     Task DecreaseProductQuantityAsync(int shopId, int productId, int quantity);
+    Task<Dictionary<int, int>> GetProductQuantityAsync(int shopId, CancellationToken cancellationToken);
 }

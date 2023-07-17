@@ -49,6 +49,26 @@ public class CurrentCardService: ICurrentCardService
         return true;
     }
 
+    public async Task<bool> IsCartPay(double price)
+    {
+        Uri uri = new Uri("http://localhost:5243/api/User");
+
+        var content = JsonContent.Create(price);
+
+        try
+        {
+            var request = await _client.PostAsync(uri, content);
+            if (request.IsSuccessStatusCode)
+                return true;
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error while paying cart: {ex.Message}");
+            return false;
+        }
+    }
+
     public async Task<AddCardResponse> AddCardAsync(Card card)
     {
         var response = new AddCardResponse();
@@ -101,5 +121,41 @@ public class CurrentCardService: ICurrentCardService
     {
         await _localStorage.RemoveItemAsync("card");
         await _localStorage.SetItemAsync("card", card);
+    }
+
+    public async Task<GetProductQuantityResponse> GetProductQuantityAsync(int shopId)
+    {
+        var result = new GetProductQuantityResponse();
+        try
+        {
+            var requestMessage = new HttpRequestMessage()
+            {
+                RequestUri = new Uri($"http://localhost:5125/api/Shop/Quantity/{shopId}"),
+                Method = HttpMethod.Get
+            };
+            var response = await _client.SendAsync(requestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                result.ProductQuantity = (await response.Content.ReadFromJsonAsync<Dictionary<int, int>>())!;
+            }
+            else
+            {
+                result.IsSuccess = false;
+                return result;
+            }
+        }
+        catch (NullReferenceException ex)
+        {
+            result.IsSuccess = false;
+            _logger.LogError("Response was null while getting quantity");
+        }
+        catch (Exception ex)
+        {
+            result.IsSuccess = false;
+            _logger.LogError($"Error while getting product quantity: {ex.Message} in {nameof(CurrentCardService)}");
+        }
+
+        return result;
+
     }
 }

@@ -884,3 +884,7 @@ C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\ProductStore.Ex
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\ProductStore.Exceptions.pdb
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\ApJMzzUZ.gz
 C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\mnAQ1dTQ.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\Blazored.Modal.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\wwwroot\_framework\Blazored.Modal.dll.gz
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\bin\Debug\net7.0\Blazored.Modal.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\UI\obj\Debug\net7.0\build-gz\XAkKMNcP.gz

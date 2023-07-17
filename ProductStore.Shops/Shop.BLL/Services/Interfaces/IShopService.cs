@@ -6,4 +6,7 @@ public interface IShopService
 {
     Task<GetAllShopsResponse> GetShopsAsync(CancellationToken cancellationToken);
     Task<GetShopProductsResponse> GetShopProductsAsync(int shopId, CancellationToken cancellationToken);
+
+    Task<GetProductQuantityResponse> GetProductQuantityAsync(int shopId,
+        CancellationToken cancellationToken);
 }

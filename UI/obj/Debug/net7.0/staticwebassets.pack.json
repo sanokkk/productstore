@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\UI.styles.css"
     },
     {
+      "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\css\\SelectPage.css",
+      "PackagePath": "staticwebassets\\css\\SelectPage.css"
+    },
+    {
       "Id": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

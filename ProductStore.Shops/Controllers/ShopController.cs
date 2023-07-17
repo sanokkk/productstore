@@ -43,4 +43,15 @@ public class ShopController: ControllerBase
         }
         return BadRequest();
     }
+
+    [HttpGet("Quantity/{storeId:int}")]
+    public async Task<IActionResult> GetProductQuantity([FromRoute] int storeId, CancellationToken cancellationToken)
+    {
+        var response = await _shopService.GetProductQuantityAsync(storeId, cancellationToken);
+        if (response.IsSuccess)
+        {
+            return Ok(response.ProductQuantity);
+        }
+        return BadRequest();
+    }
 }

@@ -61,4 +61,22 @@ public class ShopService: IShopService
 
         return result;
     }
+
+    public async Task<GetProductQuantityResponse> GetProductQuantityAsync(int shopId,
+        CancellationToken cancellationToken)
+    {
+        var result = new GetProductQuantityResponse();
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            result.ProductQuantity = await _shopRepo.GetProductQuantityAsync(shopId, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error while getting product quantity");
+            result.IsSuccess = false;
+        }
+
+        return result;
+    }
 }

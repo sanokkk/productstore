@@ -15,4 +15,6 @@ public class MyUser
     public string UserName { get; set; } = String.Empty;
     
     public string Email { get; set; } = String.Empty;
+    
+    public double Balance { get; set; }
 }

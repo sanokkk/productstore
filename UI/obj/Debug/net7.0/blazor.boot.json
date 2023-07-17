@@ -8,6 +8,7 @@
   "resources": {
     "assembly": {
       "Blazored.LocalStorage.dll": "sha256-eXVgTw72kEn74FZgDQbLtvAmXbiZDSj5gzUnxVmwowQ=",
+      "Blazored.Modal.dll": "sha256-Sr30UiM7JErBe8hojY6HAgaOOgfQE5zHijI0uVypmkM=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-\/EkWRHMHBhfvvlx5hLVtXGPm8+Gyp4WkPiKKiiJIrqQ=",
       "Microsoft.AspNetCore.Components.dll": "sha256-SvjxqyTqc68zPsYivPRkvjKRhUg5zYufzqwGNS83bwg=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-41dLN3Fx\/ysI0SP+sKtAMWTZamweRiufJ7JPqZlnXrA=",
@@ -211,14 +212,14 @@
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
       "ProductStore.Exceptions.dll": "sha256-yUGymapGluk2iJEpvlWW+jWy+4sAn\/DFai6MM\/izWqc=",
-      "UI.dll": "sha256-rJctbOhFTvUzoyi\/vUCfWNwe5rjY9HM6TKKPrLbu3Ys="
+      "UI.dll": "sha256-hJ68LEhkm2xyemwnJXnjZpSr2sgb3on\/cU\/UjoZ\/GBA="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "ProductStore.Exceptions.pdb": "sha256-MbYM64S8O3FYMtPTIZrXAp9eYUzIboBrP4MX469eJSw=",
-      "UI.pdb": "sha256-QNmSIqpYn29B78d95k3RlKC6k7zeoS3ZtKer8ojqcM4="
+      "UI.pdb": "sha256-2tq50+6\/vSDPn9TTfYdDxW6MJsJlDtCi01O88Cyr0fQ="
     },
     "runtime": {
       "dotnet.7.0.5.i3lxskqfad.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",

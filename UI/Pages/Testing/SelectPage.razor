@@ -1,5 +1,8 @@
 ﻿@page "/SelectPage"
+@inject IModalService modal
 <h3>SelectPage</h3>
+
+
 
 <EditForm Model="test">
     <InputSelect @bind-Value="test">
@@ -12,6 +15,19 @@
 
 <TestComponent Param="test"></TestComponent>
 
+<div id="wrapper">
+    <button class="plusminus" @onclick="() => { if (test > 1) test--; StateHasChanged();}">
+        -
+    </button>
+    <p class="num">@test</p>
+    <button class="plusminus"  @onclick="() => { test++; StateHasChanged();}">
+        +
+    </button>
+</div>
+
+<link href="css/SelectPage.css" rel="stylesheet"/>
+
 @code {
     private int test = 1;
+    private bool isOpen = false;
 }

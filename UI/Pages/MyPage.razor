@@ -10,15 +10,14 @@
     <p>@User.Id</p>
     <p>@User.UserName</p>
     <p>@User.Email</p>
+    <p>@User.Balance</p>
 }
 
 @code {
     public MyUser User;
-    public string Name;
 
     protected override async void OnInitialized()
     {
-        //base.OnInitialized();
 
         var response =  await _service.GetAsync();
 
