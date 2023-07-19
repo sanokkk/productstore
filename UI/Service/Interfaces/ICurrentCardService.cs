@@ -10,4 +10,5 @@ public interface ICurrentCardService
     Task<Card> GetCurrentCardAsync();
     Task<bool> IsCartPay(double price);
     Task<GetProductQuantityResponse> GetProductQuantityAsync(int shopId);
+    Task UpdateCurrentCard(Card CurrentCard);
 }

@@ -1,5 +1,6 @@
 ﻿@page "/SelectPage"
 @inject IModalService modal
+@inject NavigationManager _manager
 <h3>SelectPage</h3>
 
 
@@ -16,18 +17,41 @@
 <TestComponent Param="test"></TestComponent>
 
 <div id="wrapper">
-    <button class="plusminus" @onclick="() => { if (test > 1) test--; StateHasChanged();}">
+    <button class="plusminus" @onclick="() => { if (test > 1){ test--; sum -= price; StateHasChanged();}}">
         -
     </button>
     <p class="num">@test</p>
-    <button class="plusminus"  @onclick="() => { test++; StateHasChanged();}">
+    <button class="plusminus"  @onclick="() => { test++; sum+= price; StateHasChanged();}">
         +
     </button>
+    
 </div>
+<p>@sum</p>
+
+<button @onclick="@(() => _manager.NavigateTo("SelectPage", true))" @onclick:preventDefault>GoTo</button>
 
 <link href="css/SelectPage.css" rel="stylesheet"/>
 
 @code {
     private int test = 1;
+    private double price = 50;
+    private double sum = 50;
     private bool isOpen = false;
+    private TimeOnly time = new TimeOnly(0, 0, 0);
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+    }
+
+    private void watch()
+    {
+        while (true)
+        {
+            Thread.Sleep(5000);
+            time.Add(TimeSpan.FromSeconds(5));
+            StateHasChanged();
+        }
+    }
 }

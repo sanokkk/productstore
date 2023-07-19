@@ -158,4 +158,10 @@ public class CurrentCardService: ICurrentCardService
         return result;
 
     }
+
+    public async Task UpdateCurrentCard(Card CurrentCard)
+    {
+        await _localStorage.RemoveItemAsync("card");
+        await _localStorage.SetItemAsync("card", CurrentCard);
+    }
 }

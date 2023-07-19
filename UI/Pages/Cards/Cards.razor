@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Authorization
 @inject ICurrentCardService _currentCardService
 @inject IProductService _productService 
+@inject NavigationManager _navigationManager
 @attribute [Authorize]
 
 <h3 class="text-center text-black">Корзина</h3>
@@ -23,18 +24,19 @@
                         <div class=flex-lg-row>
                             <p class="card-text">@ProductNames[product]: @CurrentCard.ProductsWithQuantity[product].ToString() шт.</p>
                             <div id="wrapper">
-                                <button class="plusminus" @onclick="() => 
-                                    { if (CurrentCard.ProductsWithQuantity[product] > 1) 
-                                        CurrentCard.ProductsWithQuantity[product]--; 
-                                        StateHasChanged();}">
+                                <button class="plusminus" @onclick="@(async () => 
+                                    { if (CurrentCard.ProductsWithQuantity[product] > 1)
+                                    { CurrentCard.ProductsWithQuantity[product]--; 
+                                        CurrentCard.TotalPrice -= ProductsPrice[product]; 
+                                        StateHasChanged(); await SaveCart(); 
+                                    }})">
                                     -
                                 </button>
                                 <p class="num">@CurrentCard.ProductsWithQuantity[product].ToString()</p>
-                                <button class="plusminus"  @onclick="() => { 
+                                <button class="plusminus"  @onclick="@(async () => { 
                                     if (ProductQuantity[product] >=CurrentCard.ProductsWithQuantity[product])
-                                        CurrentCard.ProductsWithQuantity[product]++; 
-                                        StateHasChanged();
-                                    }">
+                                        CurrentCard.ProductsWithQuantity[product]++; CurrentCard.TotalPrice += ProductsPrice[product];
+                                        StateHasChanged();await SaveCart(); })">
                                     +
                                 </button>
                             </div>
@@ -73,16 +75,18 @@
     private bool IsOpened { get; set; } = false;
     private Dictionary<int, string>? ProductNames = new Dictionary<int, string>();
     private Dictionary<int, int>? ProductQuantity = new Dictionary<int, int>();
+    private Dictionary<int, double>? ProductsPrice = new Dictionary<int, double>();
     private bool? Payed;
     
     protected override async void OnInitialized()
     {
         base.OnInitialized();
         CurrentCard = await _currentCardService.GetCurrentCardAsync();
-        if (CurrentCard is not null)
+        if (CurrentCard is not null && CurrentCard.ProductsWithQuantity.Keys.Count != 0)
         {
             await GetProductName();
             await GetProductQuantity();
+            await GetProductPrice();
         }
         StateHasChanged();
     }
@@ -94,6 +98,12 @@
             var name = (await _productService.GetProductByIdAsync(id)).Name;
             ProductNames.Add(id, name);
         }
+    }
+
+    private async Task SaveCart()
+    {
+        await _currentCardService.UpdateCurrentCard(CurrentCard);
+        StateHasChanged();
     }
 
     private async Task GetProductQuantity()
@@ -111,20 +121,30 @@
 
     private async Task SendCard()
     {
-        if (await _currentCardService.IsCartPay(CurrentCard.TotalPrice))
+        if (!await _currentCardService.IsCartPay(CurrentCard.TotalPrice))
+        {
+            Payed = false;
+        }
+        else
         {
             await _currentCardService.AddCardAsync(CurrentCard);
-            ProductNames = new Dictionary<int, string>();
-            StateHasChanged();    
-        }
-        Payed = false;
+            StateHasChanged();
+            NavigateToCards();
+        } 
+            
     }
 
-    private async Task GetProductsQuantity()
+    private void NavigateToCards()
     {
-        if (CurrentCard is not null)
+        _navigationManager.NavigateTo("Cards", true);
+    }
+
+    private async Task GetProductPrice()
+    {
+        foreach (var id in CurrentCard.ProductsWithQuantity.Keys)
         {
-            
+            var price = (await _productService.GetProductByIdAsync(id)).Price;
+            ProductsPrice.Add(id, price);
         }
     }
 

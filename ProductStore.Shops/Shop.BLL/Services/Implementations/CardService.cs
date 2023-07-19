@@ -46,7 +46,8 @@ public class CardService: ICardService
                 TotalPrice = cardRequest.TotalPrice,
                 ShopId = cardRequest.ShopId
             };
-            card.ProductsCards.AddRange(getProductCards(card, cardRequest.ProductsWithQuantity.Keys));
+            card.ProductsCards.AddRange(getProductCards(cardRequest, card));
+            //card.ProductsCards.AddRange(getProductCards(card, cardRequest.ProductsWithQuantity.Keys));
             await _cardRepo.AddAsync(card, cancellationToken);
             await DecreaseQuantityAsync(cardRequest.ShopId, cardRequest.ProductsWithQuantity);
         }
@@ -97,14 +98,8 @@ public class CardService: ICardService
         var response = new GetCardResponse();
         try
         {
-            var card = await _cardRepo.GetByIdAsync(x => x.Id == id, cancellationToken);
-            var cardDto = new GetCardDto()
-            {
-                TotalPrice = card.TotalPrice,
-                ShopId = card.ShopId,
-                ProductPrice = GetProductWithPrice(card)
-            };
-            response.Card = cardDto;
+            var card = await _cardRepo.GetCardByIdAsync(id, cancellationToken); ;
+            response.Card = card;
         }
         catch (Exception ex)
         {
@@ -127,11 +122,27 @@ public class CardService: ICardService
         return dict;
     }
 
-    private ICollection<ProductCard> getProductCards(Card card, ICollection<int> productIds)
+    /*private ICollection<ProductCard> getProductCards(Card card, ICollection<int> productIds)
     {
         return productIds.Select(pc => new ProductCard() {Card = card, ProductId = pc})
             .ToArray();
+    }*/
+    private ICollection<ProductCard> getProductCards(AddCardRequest request, Card card)
+    {
+        var res = new List<ProductCard>();
+        foreach (var key in request.ProductsWithQuantity.Keys)
+        {
+            res.Add(new ProductCard()
+            {
+                Card = card,
+                ProductId = key,
+                Quantity = request.ProductsWithQuantity[key]
+            });
+        }
+
+        return res;
     }
+    
 
     private async Task DecreaseQuantityAsync(int shopId, Dictionary<int, int> productIds)
     {

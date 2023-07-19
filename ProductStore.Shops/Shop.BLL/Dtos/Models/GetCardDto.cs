@@ -2,7 +2,7 @@
 
 public class GetCardDto
 {
-    public Dictionary<string, int> ProductPrice { get; set; }
+    public Dictionary<int, int> ProductidQuantity { get; set; }
     
     public double TotalPrice { get; set; }
     

@@ -44,8 +44,8 @@ public class CardController: ControllerBase
         return BadRequest();
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetCardByIdAsync([FromRoute] int cardId, CancellationToken cancellationToken)
+    [HttpGet("{cardId:int}")]
+    public async Task<IActionResult> GetCardByIdAsync([FromRoute]int cardId, CancellationToken cancellationToken)
     {
         var response = await _cardService.GetCardByIdAsync(cardId, cancellationToken);
         if (response.IsSuccess)

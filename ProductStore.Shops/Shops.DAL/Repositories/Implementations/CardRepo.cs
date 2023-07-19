@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProductStore.Shops.Shop.BLL.Dtos.Models;
 using ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 using ProductStore.Shops.Shops.Domain.Domain.ManyToManyModels;
 using ProductStore.Shops.Shops.Domain.Domain.Models;
@@ -28,6 +29,21 @@ public class CardRepo: BaseRepo<Card>, ICardRepo
         };
         card.ProductsCards.Add(newItem);
         await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<GetCardDto> GetCardByIdAsync(int cardId, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        var card = (await _context.Cards.FirstOrDefaultAsync(x => x.Id == cardId, cancellationToken))!;
+        var prodWithQuantity = card.ProductsCards
+            .Where(x => x.CardId == cardId)
+            .ToDictionary(k => k.ProductId, v => v.Quantity);
+        return new GetCardDto
+        {
+            ProductidQuantity = prodWithQuantity,
+            TotalPrice = card.TotalPrice,
+            ShopId = card.ShopId
+        };
     }
 
     public async Task<ICollection<Card>> GetAllCardsAsync(string userId, CancellationToken cancellationToken)
