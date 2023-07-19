@@ -9,6 +9,8 @@
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="12.0.1" />
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.3.1" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="7.3.1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
@@ -28,6 +30,10 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\Pictures" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ProductStore.Contracts\ProductStore.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

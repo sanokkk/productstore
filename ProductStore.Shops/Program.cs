@@ -1,4 +1,5 @@
 using System.Text;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -36,6 +37,26 @@ builder.Services.AddScoped<ICardRepo, CardRepo>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IShopService, ShopService>();
 builder.Services.AddScoped<ICardService, CardService>();
+
+//MASSTRANSIT
+builder.Services.AddMassTransit(conf =>
+{
+    var assembly = typeof(Program).Assembly;
+    conf.AddConsumers(assembly);
+    conf.AddSagaStateMachines(assembly);
+    conf.AddSagas(assembly);
+    conf.AddActivities(assembly);
+    
+    conf.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
