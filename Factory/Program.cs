@@ -3,22 +3,24 @@ using MassTransit;
 
 var builder = WebApplication.CreateBuilder();
 
+//builder.Services.AddHostedService<ProductStockPublisher>();
+builder.Services.AddHostedService<SalaryPublisher>();
+
 builder.Services.AddMassTransit(conf =>
 {
-    conf.AddConsumers(typeof(Program).Assembly);
+    conf.SetKebabCaseEndpointNameFormatter();
     conf.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+		cfg.Host("localhost", h =>
         {
             h.Username("guest");
             h.Password("guest");
         });
-        cfg.ConfigureEndpoints(context);
-    });
+		cfg.ConfigureEndpoints(context);
+	});
 });
 
-builder.Services.AddHostedService<SalaryPublisher>();
-builder.Services.AddHostedService<ProductStockPublisher>();
+
 
 
 var app = builder.Build();

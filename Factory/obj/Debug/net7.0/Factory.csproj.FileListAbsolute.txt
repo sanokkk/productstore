@@ -3,15 +3,8 @@ C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Factory.de
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Factory.runtimeconfig.json
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Factory.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Factory.pdb
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Automatonymous.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\GreenPipes.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\MassTransit.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\MassTransit.RabbitMqTransport.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\NewId.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\RabbitMQ.Client.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\ProductStore.Contracts.dll
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\ProductStore.Contracts.pdb
@@ -35,3 +28,4 @@ C:\Users\san_okkk\RiderProjects\ProductStore\Factory\obj\Debug\net7.0\refint\Fac
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\obj\Debug\net7.0\Factory.pdb
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\obj\Debug\net7.0\Factory.genruntimeconfig.cache
 C:\Users\san_okkk\RiderProjects\ProductStore\Factory\obj\Debug\net7.0\ref\Factory.dll
+C:\Users\san_okkk\RiderProjects\ProductStore\Factory\bin\Debug\net7.0\MassTransit.Abstractions.dll

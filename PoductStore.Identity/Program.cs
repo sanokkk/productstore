@@ -1,4 +1,5 @@
 using System.Text;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -8,6 +9,8 @@ using PoductStore.Identity.Identity.BLL.Implementations;
 using PoductStore.Identity.Identity.BLL.Interfaces;
 using PoductStore.Identity.Identity.DAL;
 using PoductStore.Identity.Identity.DAL.Models;
+using PoductStore.Identity.Identity.DAL.Repos.Implementations;
+using PoductStore.Identity.Identity.DAL.Repos.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,30 @@ builder.Services.AddDbContext<UsersDbContext>(opt =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<ISalaryRepo, SalaryRepo>();
+
+//MASSTRANSIT
+builder.Services.AddMassTransit(conf =>
+{
+    var assembly = typeof(Program).Assembly;
+    conf.AddConsumers(typeof(Program).Assembly);
+    conf.SetKebabCaseEndpointNameFormatter();
+    conf.AddActivities(typeof(Program).Assembly);
+    conf.AddSagas(typeof(Program).Assembly);
+    conf.AddSagaStateMachines(typeof(Program).Assembly);
+    
+
+    conf.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.ConfigureEndpoints(context);
+        cfg.Host("localhost", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+    });
+});
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {

@@ -22,9 +22,9 @@ public class ProductStockPublisher: BackgroundService
             var prodStock = ProductStockFactory.CreateProduct();
 
             await _bus.Publish<ProductStockContract>(prodStock, stoppingToken);
-            _logger.LogInformation("Sended");
+            _logger.LogInformation("Sended products to stocks");
 
-            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+            await Task.Delay(TimeSpan.FromHours(5), stoppingToken);
         }
     }
 }

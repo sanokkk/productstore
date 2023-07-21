@@ -1,5 +1,3 @@
-using System.Text;
-using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -10,7 +8,10 @@ using ProductStore.Shops.Shops.DAL.Repositories.Implementations;
 using ProductStore.Shops.Shops.DAL.Repositories.Implementations.ManyToManyRepo;
 using ProductStore.Shops.Shops.DAL.Repositories.Interfaces;
 using ProductStore.Shops.Shops.DAL.Repositories.Interfaces.ManyToManyInterfaces;
-using ProductStore.Shops.Shops.Domain.Domain.Models;
+using System.Text;
+using MassTransit;
+using ProductStore.Shops.Shops.DAL.Repositories.Implementations.Consumer;
+using ProductStore.Shops.Shops.DAL.Repositories.Interfaces.Consumer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IProductTypeRepo, ProductTypeRepo>();
 builder.Services.AddScoped<IProductsWithTypesRepo, ProductsWithTypesRepo>();
 builder.Services.AddScoped<IProductsShopsRepo, ProductsShopsRepo>();
 builder.Services.AddScoped<ICardRepo, CardRepo>();
+builder.Services.AddScoped<IProductStockRepo, ProductStockRepo>();
 
 //Сервисы
 builder.Services.AddScoped<IProductService, ProductService>();
@@ -42,19 +44,21 @@ builder.Services.AddScoped<ICardService, CardService>();
 builder.Services.AddMassTransit(conf =>
 {
     var assembly = typeof(Program).Assembly;
-    conf.AddConsumers(assembly);
-    conf.AddSagaStateMachines(assembly);
-    conf.AddSagas(assembly);
-    conf.AddActivities(assembly);
+    conf.AddConsumers(typeof(Program).Assembly);
+    conf.SetKebabCaseEndpointNameFormatter();
+    conf.AddActivities(typeof(Program).Assembly);
+    conf.AddSagas(typeof(Program).Assembly);
+    conf.AddSagaStateMachines(typeof(Program).Assembly);
     
-    conf.UsingRabbitMq((context, cfg) =>
+
+	conf.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.ConfigureEndpoints(context);
+        cfg.Host("localhost", h =>
         {
             h.Username("guest");
             h.Password("guest");
         });
-        cfg.ConfigureEndpoints(context);
     });
 });
 
