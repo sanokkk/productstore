@@ -26,6 +26,9 @@
     
     
     <button @onclick="UserLogin" type="text" class="submit">submit</button>
+    <div style="margin-top: 20px;display: flex; justify-content: center;">
+            <span class="text-info" >Нет аккаунта? <button class="btn btn-info" @onclick="reg">Зарегистрироваться</button></span>
+    </div>
 </div>
 
 @if (!string.IsNullOrEmpty(validate))
@@ -61,6 +64,10 @@
             (_authenticationState as AuthProvider).NotifyAuthState();
             _manager.NavigateTo("/");
         }
+    }
+    private void reg()
+    {
+        _manager.NavigateTo("/Register");
     }
     
     

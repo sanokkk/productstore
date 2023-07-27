@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iZwfR+GvZjskJsLZfJ3shPaQHmMGLQc1wi6Hedotmoo=",
+  "Hash": "0hnf0gUjE2KEIw8R9uHI+SBqsJdEiBWm7aggBj6mYUc=",
   "Source": "UI",
   "BasePath": "/",
   "Mode": "Root",
@@ -7495,6 +7495,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\css\\MyPage.css",
+      "SourceId": "UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/MyPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MyPage.css"
     },
     {
       "Identity": "C:\\Users\\san_okkk\\RiderProjects\\ProductStore\\UI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",

@@ -1,4 +1,9 @@
-﻿@using System.Security.Claims
+﻿@inject NavigationManager _manager;
+@inject ILocalStorageService _localStorage;
+@inject AuthenticationStateProvider _authenticationState;
+@using System.Security.Claims
+@using Blazored.LocalStorage
+@using global::UI.Providers
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">ProductStore</a>
@@ -36,11 +41,22 @@
                 <span class="oi oi-list-rich" aria-hidden="true" style="color:white;">Каталог</span> 
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Cards">
-                <span class="oi oi-list-rich" aria-hidden="true" style="color:white;">Корзина</span> 
-            </NavLink>
-        </div>
+        
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Cards">
+                        <span class="oi oi-list-rich" aria-hidden="true" style="color:white;">Корзина</span> 
+                    </NavLink>
+                </div>
+                
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link btn btn-danger" @onclick="Logout" style="display: flex; align-items: center; gap: .5rem;padding: 8px 16px;">
+                        <span class="oi" style="width: 100%;font-size: 14.4px;" aria-hidden="true">Выйти</span>
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
     </nav>
 </div>
 
@@ -58,6 +74,14 @@
     {
         var userName = claims.First(_ => _.Type == "username").Value;
         return userName;
+    }
+    
+    private async void Logout()
+    {
+        await _localStorage.RemoveItemAsync("jwt-token");
+        await _localStorage.RemoveItemAsync("refresh-token");
+        (_authenticationState as AuthProvider).NotifyAuthState();
+        _manager.NavigateTo("/login");
     }
 
 }

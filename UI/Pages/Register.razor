@@ -5,7 +5,7 @@
 @inject IAuthService _service;
 @inject NavigationManager _manager;
 
-<link type="text/css" />
+<link type="text/css"/>
 <div class="form">
     <div class="title">Регистрация</div>
     <div class="subtitle">Создайте аккаунт!</div>
@@ -36,7 +36,14 @@
         <div class="cut cut-long"></div>
         <label for="passwordConfirm" class="placeholder">Confirm password</label>
     </div>
-    
+
+    <div class="input-container ic3">
+        <input @bind="model.Salary" id="salary" class="input" type="number" placeholder=" "/>
+        <div class="cut cut-long"></div>
+        <label for="salary" class="placeholder">Salary</label>
+    </div>
+
+
     <button @onclick="UserRegister" type="text" class="submit">submit</button>
 </div>
 
@@ -46,7 +53,6 @@
 
     private async void UserRegister()
     {
-        
         var user = model;
         var result = await _service.RegisterAsync(user);
 
@@ -59,7 +65,7 @@
             errors = (result as RegisterResponse).Errors;
         }
     }
-    
-    
+
+
 
 }

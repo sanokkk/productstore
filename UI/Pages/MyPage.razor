@@ -7,19 +7,36 @@
 <h3>MyPage</h3>
 @if (User is not null)
 {
-    <p>@User.Id</p>
+    <div class="panel-body">
+        <div class="body-section">
+            <h5 class="section-heading">Name:</h5>
+            <p class="section-content">@User.UserName</p>
+        </div>
+        <div class="body-section">
+            <h5 class="section-heading">Email:</h5>
+            <p class="section-content">@User.Email</p>
+        </div>
+        <div class="body-section">
+            <h5 class="section-heading">Balance:</h5>
+            <p class="section-content">@User.Balance.ToString() rub.</p>
+        </div>
+    </div>
+
+
+@*<p>@User.Id</p>
     <p>@User.UserName</p>
     <p>@User.Email</p>
-    <p>@User.Balance</p>
+    <p>@User.Balance</p>*@
 }
+
+<link href="css/MyPage.css" rel="stylesheet"/>
 
 @code {
     public MyUser User;
 
     protected override async void OnInitialized()
     {
-
-        var response =  await _service.GetAsync();
+        var response = await _service.GetAsync();
 
         if (response.Success)
         {

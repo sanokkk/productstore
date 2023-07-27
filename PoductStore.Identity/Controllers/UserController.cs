@@ -16,6 +16,12 @@ public class UserController: ControllerBase
         _userService = userService;
     }
 
+    [HttpGet]
+    public IActionResult Ping()
+    {
+        return Ok();
+    }
+
 
     [HttpPost]
     public async Task<IActionResult> CheckPay([FromBody]double price, CancellationToken cancellationToken)

@@ -8,9 +8,25 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="page">
+    <div class="title">
+        <h1>Hello, User!</h1>
+    </div>
+    <div class="text-body">
+        @if (auth is not null && auth == true)
+        {
+            <p class="text-info text-center text-black">Используйте боковое меню для навигации</p>
+        }
+        else
+        {
+            <p class="text-center text-black-50">Для входа в аккаунт/регистрации перейдите в соответсвующий раздел в боковом меню</p>
+            <p class="text-center text-black">Данное приложение разработано на микросервисной архитектуре и платформе .Net</p>
+        }
+    </div>
+</div>
 
-Welcome to your new app.
+
+@*Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?"/>
 
@@ -22,17 +38,17 @@ Welcome to your new app.
 
 <button @onclick="fetching">Fetching</button>
 
-<p>@auth</p>
+<p>@auth</p>*@
 
 @code {
-    private string auth;
+    private bool? auth;
     protected override async void OnInitialized()
     {
         base.OnInitialized();
         if ((await _authenticationState.GetAuthenticationStateAsync()).User.Identity.IsAuthenticated)
-            auth = "Auth";
+            auth = true;
         else
-            auth = "Not auth";
+            auth = false;
         StateHasChanged();
     }
 

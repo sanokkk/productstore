@@ -20,4 +20,8 @@ public class RegisterDto
     [Required]
     [Compare(nameof(Password))]
     public string PasswordConfirm { get; set; } = String.Empty;
+    
+    [Required]
+    [Range(minimum: 30000, maximum: 150000)]
+    public double Salary { get; set; }
 }
