@@ -1,4 +1,4 @@
-# ProductStore - проект на микросервисной архитектуре с клиентом на Blazor с использованием  технологии MassTransit-шины для брокера сообщений RabbitMQ.
+# ProductStore - проект на микросервисной архитектуре с клиентом на Blazor
 
 ## Схема взаимодействия:
 ![alt text](https://github.com/sanokkk/productstore/blob/master/scheme%20(1).png)
